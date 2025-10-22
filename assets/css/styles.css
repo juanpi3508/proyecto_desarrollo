@@ -361,3 +361,171 @@ footer {
         font-size: 1.5rem;
     }
 }
+
+/* ========== SING UP ========== */
+
+/* Contenedor principal */
+.register-container {
+    min-height: 100vh;
+}
+
+/* Columna izquierda */
+.register-left {
+    background: linear-gradient(135deg, #3971b8 0%, #2d5a94 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.register-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Imagen de fondo */
+.register-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://publicmarkets.nyc/sites/default/files/styles/16x9_md/public/2019-08/leasing-opp-gallery-image-essex-st-market-photo-kreg-holt-nycedc-097.jpg?h=84071268&itok=0oUIQ9dK');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+}
+
+/* Texto sobre la imagen */
+.register-text {
+    position: absolute;
+    bottom: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    width: 90%;
+}
+
+.register-text h1 {
+    color: #fbfcee !important;
+}
+
+/* Columna derecha */
+.register-right {
+    background-color: rgba(0, 64, 145, 0.62);
+}
+
+.register-form-wrapper {
+    width: 100%;
+    max-width: 450px;
+    padding: 2rem;
+}
+
+.register-form-wrapper h1 {
+    color: #fffcce;
+}
+
+.register-form-wrapper .text-muted {
+    color: rgba(255, 209, 9, 0.69) !important;
+}
+
+/* Inputs */
+.register-input {
+    background-color: rgb(255, 247, 159);
+    border: 1px solid rgba(255, 209, 9, 0.49);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: rgba(0, 64, 145, 0.36);
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.register-input::placeholder {
+    color: rgba(0, 64, 145, 0.62);
+}
+
+.register-input:focus {
+    background-color: rgba(200, 214, 155, 0.15);
+    border-color: var(--brand);
+    box-shadow: 0 0 0 0.2rem rgba(255, 200, 82, 0.92);
+    outline: none;
+    color: #fbfcee;
+}
+
+/* Botón toggle password */
+.btn-toggle-password-reg {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(251, 252, 238, 0.5);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.btn-toggle-password-reg:hover {
+    color: rgba(251, 252, 238, 0.8);
+}
+
+/* Checkbox */
+.register-checkbox {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-color: rgba(200, 214, 155, 0.3);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.register-checkbox:checked {
+    background-color: var(--brand);
+    border-color: var(--brand);
+}
+
+.form-check-label {
+    color: #c8d69b !important;
+}
+
+/* Botón Create account */
+.btn-register {
+    background: linear-gradient(135deg, var(--brand) 0%, rgba(255, 200, 82, 0.92) 100%);
+    border: none;
+    border-radius: 0.5rem;
+    color: #fbfcee;
+    padding: 0.85rem 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgb(255, 200, 82);
+}
+
+/* Divider OR */
+.register-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.register-divider::before,
+.register-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgb(255, 252, 206);
+}
+
+.register-divider span {
+    padding: 0 1rem;
+    color: rgba(255, 235, 147, 0.8);
+    font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .register-form-wrapper {
+        padding: 1.5rem;
+    }
+}
