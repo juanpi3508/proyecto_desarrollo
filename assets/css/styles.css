@@ -210,8 +210,8 @@ footer {
 
 /* Productos relacionados - Imágenes */
 .related-product .card-img-top {
-    height: 200px;  /* 👈 ESTA es la línea que controla la altura */
-    object-fit: cover;  /* 👈 Rellena sin distorsión */
+    height: 200px;
+    object-fit: cover;
     width: 100%;
 }
 
