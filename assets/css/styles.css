@@ -13,64 +13,88 @@
 
 /* Tipografías */
 body {
-    font-family: 'Comfortaa', 'Arial Rounded MT Bold', sans-serif;
+    font-family: 'Comfortaa', 'Quicksand', 'Arial Rounded MT Bold', sans-serif;
     color: var(--ink);
     background-color: var(--light-bg);
+    font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+    font-family: 'Poppins', 'Quicksand', sans-serif;
+    font-weight: 700;
     color: var(--brand);
+    letter-spacing: 0.5px;
 }
 
 h1 {
     font-size: 2.5rem;
-    letter-spacing: -0.5px;
+    letter-spacing: 0px;
+    font-weight: 800;
 }
 
 h2 {
     font-size: 2rem;
-    letter-spacing: -0.3px;
+    letter-spacing: 0px;
+    font-weight: 700;
 }
 
 h3 {
     font-size: 1.75rem;
+    font-weight: 600;
 }
 
 /* Navbar */
 .navbar-brand {
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    font-weight: 800;
+    font-size: 1.4rem;
 }
-.navbar-nav .nav-link.active { font-weight: 600; }
+.navbar-nav .nav-link.active { font-weight: 700; }
 .navbar {
     background-color: var(--brand) !important;
 }
 .navbar .nav-link {
     color: #fff !important;
     font-family: 'Comfortaa', sans-serif;
+    font-weight: 500;
 }
 .navbar .nav-link:hover {
     color: var(--brand-accent) !important;
 }
 
-/* Header*/
+/* Header - MEJORADO PARA MEJOR VISIBILIDAD */
 header {
-    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-secondary) 100%);
+    background: linear-gradient(135deg, var(--brand) 0%, #5589cc 50%, var(--brand-secondary) 100%);
     color: white;
+    position: relative;
 }
+
+/* Mejora de legibilidad del texto */
+header h1,
+header .display-5 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: white !important;
+}
+
+header p,
+header .lead {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
 header .btn-primary {
     background-color: white;
     color: var(--brand);
     border: none;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 header .btn-primary:hover {
     background-color: var(--brand-accent);
     color: var(--brand);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Cards */

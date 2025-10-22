@@ -3,255 +3,346 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MiShop | Inicio</title>
-    <meta name="description" content="MiShop: diseños alegres, colaboraciones IP y tiendas globales. Sitio simple hecho con Bootstrap + CSS." />
+    <!-- Nombre de la tab-->
+    <title>KoKo Market | Inicio</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Estilos del sitio (mismo archivo que usas en Catálogo) -->
+
+    <!-- Google Fonts - Actualizadas con Quicksand -->
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Archivo Style -->
     <link href="assets/css/styles.css" rel="stylesheet">
 </head>
+
 <body class="d-flex flex-column min-vh-100">
 
-<!-- NAVBAR (idéntica estructura, solo cambia la pestaña activa) -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="portada.html">MiShop</a>
+        <!-- Nombre de la tienda -->
+        <a class="navbar-brand fw-bold" href="portada.html">KoKo Market</a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-                aria-controls="navbarMain" aria-expanded="false" aria-label="Mostrar menú">
+        <!-- Botón hamburguesa para móviles -->
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMain">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- Menú de navegación -->
         <div class="collapse navbar-collapse" id="navbarMain">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="portada.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
-                <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
-                <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                <!-- Inicio -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="portada.html">Inicio</a>
+                </li>
+
+                <!-- Catálogo -->
+                <li class="nav-item">
+                    <a class="nav-link" href="catalogo.html">Catálogo</a>
+                </li>
+
+                <!-- Carrito -->
+                <li class="nav-item">
+                    <a class="nav-link" href="carrito.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart3 me-1" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                        </svg>
+                        Carrito
+                    </a>
+                </li>
+
+                <!-- Login -->
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle me-1" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                        </svg>
+                        Login
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- HERO (mismo estilo de gradiente de tu catálogo) -->
-<header class="py-5 border-bottom" style="background:linear-gradient(135deg, var(--brand) 0%, #e88dab 100%); color:#fff;">
+<!-- SECCIÓN PRINCIPAL -->
+<header class="py-5">
     <div class="container">
         <div class="row align-items-center g-4">
-            <div class="col-12 col-lg-6">
-                <span class="badge bg-light text-dark mb-2 text-uppercase">IP Collaboration</span>
-                <h1 class="display-5 fw-bold mb-2">LIFE IS <span class="text-warning">FOR FUN</span></h1>
-                <p class="lead opacity-75 mb-4">Una portada ligera, inspirada en MINISO, coherente con el resto del sitio MiShop.</p>
-                <div class="d-flex gap-2 flex-wrap">
-                    <a href="catalogo.html" class="btn btn-primary btn-lg px-4" style="background:#fff; color:var(--brand); border:none;">Ver catálogo</a>
-                    <a href="#colaboraciones" class="btn btn-outline-light btn-lg px-4">Conocer la marca</a>
+
+            <!-- Texto principal -->
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold mb-3">
+                    Todo lo que necesitas, a tu manera
+                </h1>
+                <p class="lead mb-4">
+                    Productos frescos, snacks de moda y todo lo esencial.
+                </p>
+
+                <!-- Botón -->
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="catalogo.html" class="btn btn-primary btn-lg">Explorar Productos</a>
                 </div>
             </div>
-            <div class="col-12 col-lg-6">
-                <div class="ratio ratio-16x9 rounded-4 shadow" style="background:#fbe0e7;">
-                    <img src="https://images.unsplash.com/photo-1584270354949-c26b0b2f6b3c?q=80&w=1600&auto=format&fit=crop" alt="Productos coloridos sobre fondo pastel" class="w-100 h-100 object-fit-cover rounded-4" loading="lazy">
+
+            <!-- Imagen que cubre todo el rectángulo -->
+            <div class="col-lg-6">
+                <div style="height: 400px; overflow: hidden; border-radius: 1rem;" class="shadow">
+                    <img src="https://en.idei.club/uploads/posts/2023-02/1677328001_en-idei-club-p-supermarket-interior-instagram-2.jpg?w=800&h=400&fit=crop"
+                         alt="Productos frescos"
+                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
+
         </div>
     </div>
 </header>
 
-<!-- MÉTRICAS (simple y consistente) -->
+<!-- ========== NÚMEROS IMPORTANTES ========== -->
 <section class="py-4 bg-white border-bottom">
     <div class="container">
         <div class="row row-cols-2 row-cols-md-4 g-3">
+
             <div class="col">
-                <div class="text-center p-3 rounded-4 shadow-sm bg-white">
-                    <div class="h3 mb-0">112</div>
-                    <small class="text-muted">Mercados Globales</small>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3 class="h2 mb-0">30min</h3>
+                        <p class="text-muted small mb-0">Entrega Express</p>
+                    </div>
                 </div>
             </div>
+
             <div class="col">
-                <div class="text-center p-3 rounded-4 shadow-sm bg-white">
-                    <div class="h3 mb-0">7,700+</div>
-                    <small class="text-muted">Tiendas</small>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3 class="h2 mb-0">5+</h3>
+                        <p class="text-muted small mb-0">Productos</p>
+                    </div>
                 </div>
             </div>
+
             <div class="col">
-                <div class="text-center p-3 rounded-4 shadow-sm bg-white">
-                    <div class="h3 mb-0">100M</div>
-                    <small class="text-muted">Miembros</small>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3 class="h2 mb-0">100%</h3>
+                        <p class="text-muted small mb-0">Frescos</p>
+                    </div>
                 </div>
             </div>
+
             <div class="col">
-                <div class="text-center p-3 rounded-4 shadow-sm bg-white">
-                    <div class="h3 mb-0">1B+</div>
-                    <small class="text-muted">Clientes</small>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3 class="h2 mb-0">24/7</h3>
+                        <p class="text-muted small mb-0">Disponible</p>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- COLABORACIONES IP (tarjetas simples) -->
-<section id="colaboraciones" class="py-5">
-    <div class="container">
-        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
-            <h2 class="mb-0 text-primary">Colaboraciones IP</h2>
-            <a class="link-primary" href="productos.html">Ver más</a>
-        </div>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3">
-            <div class="col">
-                <div class="card h-100 border-0 shadow" style="border-radius:var(--card-radius);">
-                    <div class="ratio ratio-4x3">
-                        <img src="https://images.unsplash.com/photo-1520975614082-6c0b5c8f10f2?q=80&w=1200&auto=format&fit=crop" alt="Colección inspirada en Harry Potter" class="object-fit-cover" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="badge text-bg-light text-primary border mb-2">Harry Potter</span>
-                        <h6 class="card-title mb-1">Magical Collection</h6>
-                        <p class="card-text text-muted small mb-0">Varitas, cuadernos y más para fans.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-0 shadow" style="border-radius:var(--card-radius);">
-                    <div class="ratio ratio-4x3">
-                        <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?q=80&w=1200&auto=format&fit=crop" alt="PEANUTS / Snoopy en artículos de papelería" class="object-fit-cover" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="badge text-bg-light text-primary border mb-2">PEANUTS</span>
-                        <h6 class="card-title mb-1">Classic & Cute</h6>
-                        <p class="card-text text-muted small mb-0">Snoopy y amigos, siempre vigentes.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-0 shadow" style="border-radius:var(--card-radius);">
-                    <div class="ratio ratio-4x3">
-                        <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1200&auto=format&fit=crop" alt="BT21 plush y bolsos" class="object-fit-cover" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="badge text-bg-light text-primary border mb-2">BT21</span>
-                        <h6 class="card-title mb-1">Fresh & Trendy</h6>
-                        <p class="card-text text-muted small mb-0">Nuevos ítems que elevan tu estilo.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-0 shadow" style="border-radius:var(--card-radius);">
-                    <div class="ratio ratio-4x3">
-                        <img src="https://images.unsplash.com/photo-1593545511547-32b07e1e822b?q=80&w=1200&auto=format&fit=crop" alt="Tienda temática Loopy" class="object-fit-cover" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="badge text-bg-light text-primary border mb-2">LOOPY</span>
-                        <h6 class="card-title mb-1">Mad Literature</h6>
-                        <p class="card-text text-muted small mb-0">Productos divertidos y personalizables.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- PRODUCTOS DESTACADOS (previa del catálogo) -->
-<section class="py-5 bg-light border-top">
-    <div class="container">
-        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
-            <h2 class="mb-0 text-primary">Productos destacados</h2>
-            <a class="link-primary" href="catalogo.html">Ver catálogo</a>
-        </div>
-        <div class="row row-cols-2 row-cols-md-3 row-cols-xl-6 g-3">
-            <!-- 6 cards simples -->
-            %CARDS%
-        </div>
-    </div>
-</section>
-
-<!-- TIENDAS GLOBALES (galería simple) -->
+<!-- ========== LO MÁS VENDIDO ========== -->
 <section class="py-5">
     <div class="container">
-        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
-            <h2 class="mb-0 text-primary">Tiendas globales</h2>
-            <a class="link-primary" href="#">Ver más</a>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">Lo Más Vendido</h2>
+            <a href="catalogo.html" class="product-link fw-bold">Ver todos →</a>
         </div>
-        <div class="row row-cols-1 row-cols-md-3 g-3">
-            <div class="col">
-                <div class="card h-100 border-0 shadow" style="border-radius:var(--card-radius);">
-                    <div class="ratio ratio-16x9">
-                        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop" alt="Nanjing, China" class="object-fit-cover" loading="lazy">
-                    </div>
-                    <div class="card-body py-2"><small class="text-muted">Nanjing, China</small></div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-0 shadow" style="border-radius:var(--card-radius);">
-                    <div class="ratio ratio-16x9">
-                        <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1200&auto=format&fit=crop" alt="Shanghai, China" class="object-fit-cover" loading="lazy">
-                    </div>
-                    <div class="card-body py-2"><small class="text-muted">Shanghai, China</small></div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-0 shadow" style="border-radius:var(--card-radius);">
-                    <div class="ratio ratio-16x9">
-                        <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=1200&auto=format&fit=crop" alt="Bangkok, Tailandia" class="object-fit-cover" loading="lazy">
-                    </div>
-                    <div class="card-body py-2"><small class="text-muted">Bangkok, Tailandia</small></div>
-                </div>
-            </div>
+
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3" id="mas-vendidos">
+            <!-- Los productos se cargan con JavaScript al final -->
         </div>
     </div>
 </section>
 
-<!-- BANDA CTA (idéntico estilo a tu catálogo) -->
-<section class="py-5" id="contacto">
+!-- SOBRE NOSOTROS -->
+<section class="py-5 bg-light">
     <div class="container">
-        <div class="p-4 p-md-5 rounded-4 shadow text-white d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3"
-             style="background: linear-gradient(90deg, var(--brand), #ff6a80);">
-            <div>
-                <h3 class="mb-2">Bringing Joy to the World</h3>
-                <p class="mb-0 opacity-90">¿Interesado en franquiciar? Conversemos sobre oportunidades en tu región.</p>
+        <div class="row align-items-center g-4">
+
+            <!-- Imagen -->
+            <div class="col-lg-5">
+                <div style="height: 450px; overflow: hidden; border-radius: 1rem;" class="shadow">
+                    <img src="https://www.quitoinforma.gob.ec/wp-content/uploads/2017/11/Foto-1-2.jpg?w=500&h=450&fit=crop"
+                         alt="Historia de KoKo Market"
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
             </div>
-            <a class="btn btn-light btn-lg px-4" href="mailto:franchise@example.com">Contactar</a>
+
+            <!-- Texto -->
+            <div class="col-lg-7">
+                <h2 class="mb-4">Sobre Nosotros</h2>
+                <p class="mb-3">
+                    KoKo Market surge de una profunda herencia familiar. Su inspiración se remonta a la pasión de Don Eduardo,
+                    bisabuelo de uno de nuestros fundadores, quien en la década de los 50 forjó su experiencia como trabajador en
+                    los vibrantes mercados tradicionales de Quito.
+
+                    El mayor anhelo de Don Eduardo fue materializar su propia visión: abrir un supermercado que se distinguiera por
+                    ser amigable, justo y único, ofreciendo siempre productos de la más alta calidad. Hoy, KoKo Market es el cumplimiento
+                    de ese sueño. Con cada pasillo y cada producto, honramos su legado y nos comprometemos a mantener viva su visión original.
+                </p>
+                <div class="d-flex gap-3">
+                    <div>
+                        <h4 class="mb-1">2025</h4>
+                        <p class="text-muted small mb-0">Fundación</p>
+                    </div>
+                    <div class="border-start ps-3">
+                        <h4 class="mb-1">1+</h4>
+                        <p class="text-muted small mb-0">Semana de experiencia</p>
+                    </div>
+                    <div class="border-start ps-3">
+                        <h4 class="mb-1">3+</h4>
+                        <p class="text-muted small mb-0">Clientes satisfechos</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
 
-<!-- FOOTER (mismo pie que catálogo) -->
-<footer class="bg-dark text-white py-4 mt-auto">
-    <div class="container text-center small">
-        <div class="mb-2">
-            <a href="#" class="text-white text-decoration-none me-3">Política de Privacidad</a>
-            <a href="#" class="text-white text-decoration-none me-3">Términos y Condiciones</a>
-            <a href="#contacto" class="text-white text-decoration-none">Contacto</a>
+
+<!-- ========== POR QUÉ KOKO MARKET ========== -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <h2 class="mb-4 text-center">¿Por qué KoKo Market?</h2>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <!-- Ventaja 1 -->
+            <div class="col">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <div class="feature-icon">🚀</div>
+                        <h5 class="card-title">Entrega Rápida</h5>
+                        <p class="text-muted">
+                            Tu pedido en 30 minutos o es gratis.
+                            Entregamos cuando te convenga.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ventaja 2 -->
+            <div class="col">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <div class="feature-icon">🌱</div>
+                        <h5 class="card-title">Productos Frescos</h5>
+                        <p class="text-muted">
+                            Seleccionamos lo mejor cada día.
+                            Garantía de frescura o te devolvemos tu dinero.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ventaja 3 -->
+            <div class="col">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <div class="feature-icon">💰</div>
+                        <h5 class="card-title">Precios Justos</h5>
+                        <p class="text-muted">
+                            Ofertas semanales y precios competitivos
+                            sin sacrificar calidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div>&copy; 2025 MiShop - Todos los derechos reservados</div>
+    </div>
+</section>
+
+
+<!-- ========== PIE DE PÁGINA ========== -->
+<footer class="py-4 mt-auto">
+    <div class="container text-center small">
+
+        <!-- Links -->
+        <div class="mb-3">
+            <a href="#" class="text-white text-decoration-none me-3">Política de Privacidad</a>
+            <a href="#" class="text-white text-decoration-none me-3">Términos</a>
+            <a href="#contacto" class="text-white text-decoration-none me-3">Contacto</a>
+            <a href="#" class="text-white text-decoration-none">Trabaja con Nosotros</a>
+        </div>
+
+        <!-- Copyright -->
+        <p class="mb-0">&copy; 2025 KoKo Market - Tu Súper Inteligente</p>
     </div>
 </footer>
 
-<!-- Bootstrap JS -->
+<!-- Bootstrap JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Inserta 6 productos destacados (reemplaza %CARDS% si deseas generarlos server-side). Aquí los dejamos en HTML plano: -->
+<!-- Script para cargar productos más vendidos -->
 <script>
-    (function(){
-        const cont = document.currentScript.previousElementSibling.querySelector('.row');
-        const items = [
-            { n:'Shopping Bag', img:'https://images.unsplash.com/photo-1556909114-42d8e9aa1d48?q=80&w=1200&auto=format&fit=crop' },
-            { n:'Cute Plush', img:'https://images.unsplash.com/photo-1578894383936-2e08fe7f98fc?q=80&w=1200&auto=format&fit=crop' },
-            { n:'Pillow 16"', img:'https://images.unsplash.com/photo-1518614189403-1f91a162d79e?q=80&w=1200&auto=format&fit=crop' },
-            { n:'Weekly Planner', img:'https://images.unsplash.com/photo-1514477917009-389c76a86b68?q=80&w=1200&auto=format&fit=crop' },
-            { n:'Standee Box', img:'https://images.unsplash.com/photo-1534126416832-a88fdf2911c2?q=80&w=1200&auto=format&fit=crop' },
-            { n:'Bottle 1250 mL', img:'https://images.unsplash.com/photo-1584947115305-7661c825be22?q=80&w=1200&auto=format&fit=crop' }
-        ];
-        items.forEach(x => {
-            cont.insertAdjacentHTML('beforeend', `
-          <div class="col">
-            <div class="card h-100 border-0 shadow" style="border-radius:var(--card-radius);">
-              <div class="ratio ratio-1x1">
-                <img src="${x.img}" alt="${x.n}" class="object-fit-cover" loading="lazy">
-              </div>
-              <div class="card-body py-2"><div class="small fw-semibold">${x.n}</div></div>
-            </div>
-          </div>`);
-        });
-    })();
+    // Lista de productos - FRUTAS con imágenes del mismo tamaño
+    const productos = [
+        {
+            nombre: 'Manzanas Rojas',
+            precio: '$3.99',
+            imagen: 'https://plus.unsplash.com/premium_photo-1674262320834-02e1779bd1bb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFuemFuYXMlMjByb2phc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000?q=80&w=400&h=300&auto=format&fit=crop'
+        },
+        {
+            nombre: 'Plátanos Frescos',
+            precio: '$2.49',
+            imagen: 'https://images.unsplash.com/photo-1603833665858-e61d17a86224?q=80&w=400&h=300&auto=format&fit=crop'
+        },
+        {
+            nombre: 'Fresas Premium',
+            precio: '$5.99',
+            imagen: 'https://images.unsplash.com/photo-1543528176-61b239494933?q=80&w=400&h=300&auto=format&fit=crop'
+        },
+        {
+            nombre: 'Naranjas Jugosas',
+            precio: '$4.49',
+            imagen: 'https://images.unsplash.com/photo-1582979512210-99b6a53386f9?q=80&w=400&h=300&auto=format&fit=crop'
+        },
+        {
+            nombre: 'Uvas Verdes',
+            precio: '$6.99',
+            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpR-ieJECRn0T-0QHUTGRrYum-GEdTKHZsQ&s?w=400&h=300&fit=crop'
+        },
+        {
+            nombre: 'Sandía Dulce',
+            precio: '$7.99',
+            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSojae9-0GvHs0Xi6HgMWlz0VR8f0gaCBRGBi8GrEaTw8mkDstX9uIFn_0A2HvOfdB97Qc&usqp=CAU?w=400&h=300&fit=crop'
+        }
+    ];
+
+    // Obtener el contenedor donde van los productos
+    const contenedor = document.getElementById('mas-vendidos');
+
+    // Crear una tarjeta por cada producto con imágenes del mismo tamaño
+    productos.forEach(function(producto) {
+        const html = `
+                <div class="col">
+                    <div class="card h-100">
+                        <div style="height: 200px; overflow: hidden;">
+                            <img src="${producto.imagen}"
+                                 class="card-img-top"
+                                 alt="${producto.nombre}"
+                                 style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="card-body">
+                            <h6 class="fw-semibold mb-1">${producto.nombre}</h6>
+                            <p class="mb-0 product-price fw-bold">${producto.precio}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        contenedor.innerHTML += html;
+    });
 </script>
+
 </body>
 </html>
