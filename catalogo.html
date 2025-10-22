@@ -287,6 +287,52 @@
             }
 
 
+            // Leer parámetro de categoría desde la URL
+            function aplicarCategoriaDesdeURL() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const categoria = urlParams.get('categoria');
+
+                if (categoria) {
+                    // Esperar a que se carguen las categorías
+                    setTimeout(() => {
+                        el.cat.value = categoria;
+                        state.cat = categoria;
+                        applyFilters();
+
+                        // Scroll suave al catálogo
+                        document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                }
+            }
+
+// Modificar la carga de productos
+            async function loadProducts() {
+                try {
+                    el.status.style.display = 'block';
+                    const res = await fetch(DATA_URL, { cache: 'no-store' });
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    const data = await res.json();
+                    if (!Array.isArray(data)) throw new Error('El JSON debe ser un array de productos');
+                    state.all = data;
+                    renderCategories(data);
+                    applyFilters();
+
+                    // Aplicar categoría de URL si existe
+                    aplicarCategoriaDesdeURL();
+                } catch (err) {
+                    console.error(err);
+                    el.grid.innerHTML = `
+          <div class="col-12">
+            <div class="alert alert-danger">
+              No se pudo cargar el catálogo. Revisa la ruta del JSON (<code>${DATA_URL}</code>) o el formato.
+            </div>
+          </div>`;
+                } finally {
+                    el.status.style.display = 'none';
+                }
+            }
+
+
     /* === BLOQUE: EVENTOS === */
     el.q.addEventListener('input', () => { state.q = el.q.value; applyFilters(); });
     el.cat.addEventListener('change', () => { state.cat = el.cat.value; applyFilters(); });
