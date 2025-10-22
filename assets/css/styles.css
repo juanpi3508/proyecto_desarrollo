@@ -240,14 +240,12 @@ footer {
     font-weight: 600;
 }
 
-/* Cards de reseñas */
-.review-card {
-    border-left: 3px solid var(--brand);
-    background: white;
-    border-radius: var(--card-radius);
-    padding: 1rem;
-    margin-bottom: 1rem;
-    box-shadow: var(--shadow);
+
+/* Productos relacionados - Imágenes */
+.related-product .card-img-top {
+    height: 200px;  /* 👈 ESTA es la línea que controla la altura */
+    object-fit: cover;  /* 👈 Rellena sin distorsión */
+    width: 100%;
 }
 
 /* Productos relacionados */
