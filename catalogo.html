@@ -16,8 +16,9 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-<!-- BARRA SUPERIOR -->
-<!-- Barra de navegación -->
+<!-- ============================
+     BARRA SUPERIOR / NAVBAR
+=============================== -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
     <div class="container">
         <!-- Nombre de la tienda -->
@@ -67,19 +68,23 @@
         </div>
     </div>
 </nav>
-</body>
 
-<!-- HEADER -->
+<!-- ============================
+          HEADER
+=============================== -->
 <header class="bg-light py-5 text-center border-bottom">
     <div class="container">
-        <h1 class="display-5 fw-bold mb-2">Bienvenido a MiShop</h1>
+        <h1 class="display-5 fw-bold mb-2">Bienvenido a KoKo Market</h1>
         <p class="lead text-muted mb-4">Encuentra los mejores productos al mejor precio</p>
         <a href="#catalogo" class="btn btn-primary btn-lg px-4">Ver catálogo</a>
     </div>
 </header>
 
-<!-- CONTENIDO PRINCIPAL -->
+<!-- ============================
+     CONTENIDO PRINCIPAL
+=============================== -->
 <main class="container my-5" id="catalogo">
+    <!-- Barra de búsqueda, filtros y orden -->
     <div class="d-flex flex-column flex-md-row gap-2 align-items-md-end align-items-stretch mb-4">
         <div class="flex-grow-1">
             <label for="q" class="form-label mb-1">Buscar</label>
@@ -103,11 +108,16 @@
         </div>
     </div>
 
+    <!-- Mensaje de carga -->
     <div id="statusMsg" class="alert alert-info py-2">Cargando productos…</div>
+
+    <!-- Contenedor donde se insertan las tarjetas -->
     <div id="grid" class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3"></div>
 </main>
 
-<!-- FOOTER -->
+<!-- ============================
+            FOOTER
+=============================== -->
 <footer class="bg-dark text-white py-4 mt-auto">
     <div class="container text-center small">
         <div class="mb-2">
@@ -122,8 +132,11 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Catálogo desde JSON -->
+<!-- ============================
+     SCRIPT: Catálogo desde JSON
+=============================== -->
 <script>
+    /* === CONFIGURACIÓN BASE === */
     const DATA_URL = 'productos.json';
 
     const state = {
@@ -147,11 +160,13 @@
 
     function unique(arr) { return [...new Set(arr)]; }
 
+    /* === BLOQUE: RENDERIZAR CATEGORÍAS === */
     function renderCategories(items) {
         const cats = unique(items.map(p => p.categoria).filter(Boolean)).sort((a,b)=>a.localeCompare(b));
         el.cat.innerHTML = '<option value="">Todas</option>' + cats.map(c => `<option value="${c}">${c}</option>`).join('');
     }
 
+    /* === BLOQUE: RENDERIZAR TARJETAS DE PRODUCTOS === */
     function renderGrid(items) {
         if (!items.length) {
             el.grid.innerHTML = '<div class="col-12"><div class="alert alert-warning">No se encontraron productos.</div></div>';
@@ -162,28 +177,38 @@
             const img = p.imagen || 'https://via.placeholder.com/600x600?text=Sin+imagen';
             const badge = p.stock === 0 ? '<span class="badge text-bg-secondary">Agotado</span>' : '';
             const price = fmtCurrency(p.precio ?? 0);
+
+            // Enlace a la página de producto con el ID
+            const url = `producto.html?id=${encodeURIComponent(p.id)}`;
+
             return `
-          <div class="col">
-            <div class="card h-100">
-              <img src="${img}" class="card-img-top" alt="${p.nombre?.replaceAll('"','&quot;') || 'Producto'}" loading="lazy">
-              <div class="card-body d-flex flex-column">
-                <div class="d-flex align-items-start justify-content-between gap-2">
-                  <h6 class="card-title mb-1">${p.nombre || 'Producto'}</h6>
-                  ${badge}
-                </div>
-                <p class="text-muted small mb-2">${p.marca || ''}${p.marca && p.categoria ? ' · ' : ''}${p.categoria || ''}</p>
-                <p class="fw-bold mb-3">${price}</p>
-                <button class="btn btn-outline-primary w-100 mt-auto" data-id="${p.id}" ${p.stock === 0 ? 'disabled' : ''}>
-                  ${p.stock === 0 ? 'Sin stock' : 'Agregar al carrito'}
-                </button>
-              </div>
+              <div class="col">
+                <div class="card h-100">
+                  <!-- Enlace principal a la ficha del producto -->
+            <a href="${url}" class="text-decoration-none text-reset">
+            <img src="${img}" class="card-img-top" alt="${p.nombre || 'Producto'}" loading="lazy">
+            </a>
+
+            <div class="card-body d-flex flex-column">
+            <div class="d-flex align-items-start justify-content-between gap-2">
+            <h6 class="card-title mb-1">
+            <a href="${url}" class="stretched-link text-decoration-none text-reset">
+            ${p.nombre || 'Producto'}
+            </a>
+            </h6>
+            ${badge}
             </div>
-          </div>`;
+            <p class="text-muted small mb-2">${p.marca || ''}${p.marca && p.categoria ? ' · ' : ''}${p.categoria || ''}</p>
+            <p class="fw-bold mb-3">${price}</p>
+            </div>
+            </div>
+            </div>`;
         }).join('');
 
         el.grid.innerHTML = cards;
     }
 
+    /* === BLOQUE: FILTROS Y ORDEN === */
     function applyFilters() {
         const q = state.q.trim().toLowerCase();
         const cat = state.cat;
@@ -210,7 +235,6 @@
                 items.sort((a,b)=> (b.nombre||'').localeCompare(a.nombre||''));
                 break;
             default:
-
                 break;
         }
 
@@ -218,6 +242,7 @@
         renderGrid(items);
     }
 
+    /* === BLOQUE: CARGAR PRODUCTOS DESDE JSON === */
     async function loadProducts() {
         try {
             el.status.style.display = 'block';
@@ -231,21 +256,22 @@
         } catch (err) {
             console.error(err);
             el.grid.innerHTML = `
-          <div class="col-12">
+            <div class="col-12">
             <div class="alert alert-danger">
-              No se pudo cargar el catálogo. Revisa la ruta del JSON (<code>${DATA_URL}</code>) o el formato.
+            No se pudo cargar el catálogo. Revisa la ruta del JSON (<code>${DATA_URL}</code>) o el formato.
             </div>
-          </div>`;
+            </div>`;
         } finally {
             el.status.style.display = 'none';
         }
     }
 
+    /* === BLOQUE: EVENTOS === */
     el.q.addEventListener('input', () => { state.q = el.q.value; applyFilters(); });
     el.cat.addEventListener('change', () => { state.cat = el.cat.value; applyFilters(); });
     el.sort.addEventListener('change', () => { state.sort = el.sort.value; applyFilters(); });
 
-
+    /* === BLOQUE: INICIO === */
     document.addEventListener('DOMContentLoaded', loadProducts);
 </script>
 </body>
