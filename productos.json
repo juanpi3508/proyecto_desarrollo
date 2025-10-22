@@ -2,155 +2,125 @@
   {
     "id": 1,
     "nombre": "Manzanas Rojas",
-    "precio": 2.5,
-    "imagen": "/assets/img/frutas_manzanas.jpg",
+    "precio": 2.50,
+    "imagen": "img/frutas_manzanas.jpg",
     "descripcion": "Manzanas rojas frescas por kilo.",
-    "categoria": "Frutas y Verduras",
-    "marca": "AgroAndes",
-    "stock": 35
+    "categoria": "Frutas y Verduras"
   },
   {
     "id": 2,
     "nombre": "Plátanos",
-    "precio": 1.8,
-    "imagen": "/assets/img/frutas_platanos.jpg",
+    "precio": 1.80,
+    "imagen": "img/frutas_platanos.jpg",
     "descripcion": "Plátanos maduros por kilo.",
-    "categoria": "Frutas y Verduras",
-    "marca": "AgroAndes",
-    "stock": 50
+    "categoria": "Frutas y Verduras"
   },
   {
     "id": 3,
     "nombre": "Tomates",
-    "precio": 2.2,
-    "imagen": "/assets/img/verduras_tomates.jpg",
+    "precio": 2.20,
+    "imagen": "img/verduras_tomates.jpg",
     "descripcion": "Tomates frescos de ensalada por kilo.",
-    "categoria": "Frutas y Verduras",
-    "marca": "CampoVerde",
-    "stock": 28
+    "categoria": "Frutas y Verduras"
   },
 
   {
     "id": 4,
     "nombre": "Leche Entera 1L",
-    "precio": 1.2,
-    "imagen": "/assets/img/lacteos_leche.jpg",
+    "precio": 1.20,
+    "imagen": "img/lacteos_leche.jpg",
     "descripcion": "Leche entera pasteurizada de 1 litro.",
-    "categoria": "Lácteos",
-    "marca": "Lácteos Andinos",
-    "stock": 60
+    "categoria": "Lácteos"
   },
   {
     "id": 5,
     "nombre": "Queso Fresco",
-    "precio": 3.5,
-    "imagen": "/assets/img/lacteos_queso.jpg",
+    "precio": 3.50,
+    "imagen": "img/lacteos_queso.jpg",
     "descripcion": "Queso fresco tipo panela 500g.",
-    "categoria": "Lácteos",
-    "marca": "Lácteos Andinos",
-    "stock": 22
+    "categoria": "Lácteos"
   },
   {
     "id": 6,
     "nombre": "Yogur Natural 1L",
-    "precio": 2.8,
-    "imagen": "/assets/img/lacteos_yogur.jpg",
+    "precio": 2.80,
+    "imagen": "img/lacteos_yogur.jpg",
     "descripcion": "Yogur natural sin azúcar.",
-    "categoria": "Lácteos",
-    "marca": "Lácteos Andinos",
-    "stock": 0
+    "categoria": "Lácteos"
   },
 
   {
     "id": 7,
     "nombre": "Pechuga de Pollo",
     "precio": 5.99,
-    "imagen": "/assets/img/carnes_pollo.jpg",
+    "imagen": "img/carnes_pollo.jpg",
     "descripcion": "Pechuga de pollo sin hueso por kilo.",
-    "categoria": "Carnes",
-    "marca": "Carnes Selectas",
-    "stock": 18
+    "categoria": "Carnes"
   },
   {
     "id": 8,
     "nombre": "Carne Molida de Res",
-    "precio": 7.5,
-    "imagen": "/assets/img/carnes_res.jpg",
+    "precio": 7.50,
+    "imagen": "img/carnes_res.jpg",
     "descripcion": "Carne molida de res 90/10 por kilo.",
-    "categoria": "Carnes",
-    "marca": "Carnes Selectas",
-    "stock": 26
+    "categoria": "Carnes"
   },
   {
     "id": 9,
     "nombre": "Chuletas de Cerdo",
-    "precio": 6.8,
-    "imagen": "/assets/img/carnes_cerdo.jpg",
+    "precio": 6.80,
+    "imagen": "img/carnes_cerdo.jpg",
     "descripcion": "Chuletas de cerdo frescas por kilo.",
-    "categoria": "Carnes",
-    "marca": "Carnes Selectas",
-    "stock": 14
+    "categoria": "Carnes"
   },
 
   {
     "id": 10,
     "nombre": "Jugo de Naranja 1L",
-    "precio": 2.4,
-    "imagen": "/assets/img/bebidas_jugo_naranja.jpg",
+    "precio": 2.40,
+    "imagen": "img/bebidas_jugo_naranja.jpg",
     "descripcion": "Jugo natural de naranja sin conservadores.",
-    "categoria": "Bebidas",
-    "marca": "Bebidas del Sol",
-    "stock": 40
+    "categoria": "Bebidas"
   },
   {
     "id": 11,
     "nombre": "Refresco Cola 2L",
-    "precio": 2.1,
-    "imagen": "/assets/img/bebidas_refresco_cola.jpg",
+    "precio": 2.10,
+    "imagen": "img/bebidas_refresco_cola.jpg",
     "descripcion": "Refresco sabor cola 2 litros.",
-    "categoria": "Bebidas",
-    "marca": "Burbujas",
-    "stock": 55
+    "categoria": "Bebidas"
   },
   {
     "id": 12,
     "nombre": "Agua Mineral 1.5L",
-    "precio": 1.5,
-    "imagen": "/assets/img/bebidas_agua_mineral.jpg",
+    "precio": 1.50,
+    "imagen": "img/bebidas_agua_mineral.jpg",
     "descripcion": "Agua mineral natural con gas.",
-    "categoria": "Bebidas",
-    "marca": "Nevada",
-    "stock": 48
+    "categoria": "Bebidas"
   },
 
   {
     "id": 13,
     "nombre": "Shampoo 400ml",
-    "precio": 4.2,
-    "imagen": "/assets/img/higiene_shampoo.jpg",
+    "precio": 4.20,
+    "imagen": "img/higiene_shampoo.jpg",
     "descripcion": "Shampoo hidratante para todo tipo de cabello.",
-    "categoria": "Higiene y Limpieza",
-    "marca": "PureCare",
-    "stock": 30
+    "categoria": "Higiene y Limpieza"
   },
   {
     "id": 14,
     "nombre": "Jabón de Tocador 3 pack",
-    "precio": 2.5,
-    "imagen": "/assets/img/higiene_jabon.jpg",
+    "precio": 2.50,
+    "imagen": "img/higiene_jabon.jpg",
     "descripcion": "Jabón de tocador suave con la piel.",
-    "categoria": "Higiene y Limpieza",
-    "marca": "PureCare",
-    "stock": 36
+    "categoria": "Higiene y Limpieza"
   },
   {
     "id": 15,
     "nombre": "Detergente en Polvo 1kg",
-    "precio": 3.8,
-    "imagen": "/assets/img/limpieza_detergente.jpg",
+    "precio": 3.80,
+    "imagen": "img/limpieza_detergente.jpg",
     "descripcion": "Detergente en polvo para ropa blanca y de color.",
-    "categoria": "Higiene y Limpieza",
-    "marca": "LimpioMax",
-    "stock": 20
+    "categoria": "Higiene y Limpieza"
   }
 ]
