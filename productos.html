@@ -71,7 +71,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="portada.html" class="text-decoration-none">Inicio</a></li>
             <li class="breadcrumb-item"><a href="catalogo.html" class="text-decoration-none">Catálogo</a></li>
-            <li class="breadcrumb-item"><span id="breadcrumb-categoria">Cargando...</span></li>
+            <li class="breadcrumb-item"><a href="#" id="breadcrumb-categoria-link" class="text-decoration-none"></a></li>
             <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-producto">Producto</li>
         </ol>
     </nav>
@@ -249,15 +249,19 @@
 
         document.getElementById('productDescription').textContent = productoActual.descripcion;
 
-        // Actualizar breadcrumb
-        document.getElementById('breadcrumb-categoria').textContent = productoActual.categoria;
+        // Actualizar breadcrumb con enlace a categoría
+        const categoriaEncoded = encodeURIComponent(productoActual.categoria);
+        const breadcrumbLink = document.getElementById('breadcrumb-categoria-link');
+        breadcrumbLink.textContent = productoActual.categoria;
+        breadcrumbLink.href = `catalogo.html?categoria=${categoriaEncoded}`;
+
         document.getElementById('breadcrumb-producto').textContent = productoActual.nombre;
 
         // Cargar imagen principal
         document.getElementById('mainImage').src = productoActual.imagen;
         document.getElementById('mainImage').alt = productoActual.nombre;
 
-        // Generar thumbnails (simulamos 4 vistas del mismo producto)
+        // Generar thumbnails
         generarThumbnails();
 
         // Cargar productos relacionados
