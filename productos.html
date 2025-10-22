@@ -3,29 +3,63 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MiShop | Smartphone XYZ Pro Max</title>
+    <title>KoKo Market | Detalle de Producto</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Tus estilos -->
     <link href="assets/css/styles.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- BARRA SUPERIOR -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="portada.html">MiShop</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <!-- Nombre de la tienda -->
+        <a class="navbar-brand fw-bold" href="portada.html">KoKo Market</a>
+
+        <!-- Botón hamburguesa para móviles -->
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMain">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Menú de navegación -->
         <div class="collapse navbar-collapse" id="navbarMain">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="portada.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
-                <li class="nav-item"><a class="nav-link active" href="productos.html">Productos</a></li>
-                <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                <!-- Inicio -->
+                <li class="nav-item">
+                    <a class="nav-link" href="portada.html">Inicio</a>
+                </li>
+
+                <!-- Catálogo -->
+                <li class="nav-item">
+                    <a class="nav-link" href="catalogo.html">Catálogo</a>
+                </li>
+
+                <!-- Carrito -->
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart3 me-1" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                        </svg>
+                        Carrito
+                    </a>
+                </li>
+
+                <!-- Login -->
+                <li class="nav-item">
+                    <a class="nav-link" href="log.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle me-1" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                        </svg>
+                        Login
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -37,8 +71,8 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="portada.html" class="text-decoration-none">Inicio</a></li>
             <li class="breadcrumb-item"><a href="catalogo.html" class="text-decoration-none">Catálogo</a></li>
-            <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Electrónica</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Smartphones</li>
+            <li class="breadcrumb-item"><span id="breadcrumb-categoria">Cargando...</span></li>
+            <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-producto">Producto</li>
         </ol>
     </nav>
 </div>
@@ -49,19 +83,16 @@
         <!-- COLUMNA DE IMÁGENES -->
         <div class="col-md-5 mb-4">
             <div class="mb-3">
-                <img id="mainImage" src="https://via.placeholder.com/600x600/ff5268/ffffff?text=Smartphone+XYZ+Pro" class="product-image-main" alt="Smartphone XYZ Pro Max">
+                <img id="mainImage" src="" class="product-image-main" alt="Producto">
             </div>
-            <div class="d-flex gap-2 flex-wrap">
-                <img src="https://via.placeholder.com/60x60/ff5268/ffffff?text=1" class="product-thumbnail active" onclick="changeImage(this, 'https://via.placeholder.com/600x600/ff5268/ffffff?text=Smartphone+XYZ+Pro')" alt="Vista 1">
-                <img src="https://via.placeholder.com/60x60/ff7a8d/ffffff?text=2" class="product-thumbnail" onclick="changeImage(this, 'https://via.placeholder.com/600x600/ff7a8d/ffffff?text=Vista+Trasera')" alt="Vista 2">
-                <img src="https://via.placeholder.com/60x60/e88dab/ffffff?text=3" class="product-thumbnail" onclick="changeImage(this, 'https://via.placeholder.com/600x600/e88dab/ffffff?text=Vista+Lateral')" alt="Vista 3">
-                <img src="https://via.placeholder.com/60x60/240b15/ffffff?text=4" class="product-thumbnail" onclick="changeImage(this, 'https://via.placeholder.com/600x600/240b15/ffffff?text=Pantalla')" alt="Vista 4">
+            <div class="d-flex gap-2 flex-wrap" id="thumbnailsContainer">
+                <!-- Los thumbnails se generarán con JavaScript -->
             </div>
         </div>
 
         <!-- COLUMNA DE INFORMACIÓN -->
         <div class="col-md-4 mb-4">
-            <h1 class="h3 mb-2 fw-bold">Smartphone XYZ Pro Max - 256GB - 5G</h1>
+            <h1 class="h3 mb-2 fw-bold" id="productName">Cargando producto...</h1>
 
             <!-- Rating y reseñas -->
             <div class="d-flex align-items-center mb-3">
@@ -69,12 +100,12 @@
                     ★★★★☆
                 </div>
                 <span class="fw-bold me-2">4.5</span>
-                <a href="#reviews" class="text-decoration-none small product-link">2,847 calificaciones</a>
+                <span class="small text-muted">(287 calificaciones)</span>
             </div>
 
             <div class="mb-3">
-                <span class="text-muted small">Marca: </span>
-                <a href="#" class="text-decoration-none fw-semibold product-link">TechBrand</a>
+                <span class="text-muted small">Categoría: </span>
+                <span class="fw-semibold" id="productCategory">-</span>
             </div>
 
             <hr>
@@ -82,286 +113,67 @@
             <!-- Precio -->
             <div class="mb-3">
                 <div class="d-flex align-items-baseline gap-2 mb-1 flex-wrap">
-                    <span class="badge badge-discount">-25% OFF</span>
-                    <span class="h3 mb-0 fw-bold product-price">$749.99</span>
+                    <span class="badge badge-discount">-15% OFF</span>
+                    <span class="h3 mb-0 fw-bold product-price" id="productPrice">$0.00</span>
                 </div>
                 <div class="text-muted small">
-                    <span class="price-old">Precio anterior: $999.99</span>
+                    <span class="price-old" id="productPriceOld">Precio anterior: $0.00</span>
                 </div>
             </div>
 
             <!-- Descripción breve -->
             <div class="mb-3">
-                <h5 class="h6 fw-bold">Acerca de este producto:</h5>
-                <ul class="small mb-0 product-features">
-                    <li class="mb-1">Pantalla AMOLED de 6.7" con tasa de refresco de 120Hz</li>
-                    <li class="mb-1">Procesador Octa-Core de última generación</li>
-                    <li class="mb-1">Cámara triple de 108MP + 12MP + 8MP</li>
-                    <li class="mb-1">Batería de 5000mAh con carga rápida de 65W</li>
-                    <li class="mb-1">256GB de almacenamiento interno</li>
-                    <li class="mb-1">Conectividad 5G y WiFi 6</li>
-                </ul>
+                <h5 class="h6 fw-bold">Descripción del producto:</h5>
+                <p class="small" id="productDescription">Cargando descripción...</p>
             </div>
 
             <!-- Disponibilidad -->
             <div class="mb-3 p-3 bg-light rounded">
                 <p class="mb-2"><span class="badge-stock">En Stock</span></p>
-                <p class="small mb-1">📦 <strong>Envío GRATIS</strong> mañana si lo pides en las próximas 5 horas</p>
-                <p class="small mb-0 text-muted">📍 Enviar a <strong>Quito, Pichincha</strong></p>
-            </div>
-
-            <!-- Colores disponibles -->
-            <div class="mb-3">
-                <p class="mb-2 small fw-semibold">Color: <span class="text-muted">Negro</span></p>
-                <div class="d-flex gap-2">
-                    <button class="color-btn active" style="background: #000;" onclick="selectColor(this)"></button>
-                    <button class="color-btn" style="background: #fff; border-color: #ccc;" onclick="selectColor(this)"></button>
-                    <button class="color-btn" style="background: #4a90e2;" onclick="selectColor(this)"></button>
-                </div>
+                <p class="small mb-1">📦 <strong>Envío GRATIS</strong> en compras mayores a $20</p>
+                <p class="small mb-0 text-muted">📍 Disponible en <strong>Quito, Pichincha</strong></p>
             </div>
         </div>
 
         <!-- COLUMNA DE COMPRA -->
         <div class="col-md-3">
             <div class="price-section sticky-top" style="top: 80px;">
-                <div class="h4 fw-bold mb-3 product-price">$749.99</div>
+                <div class="h4 fw-bold mb-3 product-price" id="productPriceSidebar">$0.00</div>
 
                 <div class="mb-3 pb-3 border-bottom">
                     <p class="small mb-1 fw-semibold">🚚 Envío GRATIS</p>
-                    <p class="small text-muted mb-2">Llega mañana, 22 de octubre</p>
+                    <p class="small text-muted mb-2">En compras mayores a $20</p>
                     <p class="small mb-0 text-muted">
-                        📍 Enviar a <strong>Quito</strong>
+                        📍 Disponible en <strong>Quito</strong>
                     </p>
                 </div>
 
                 <div class="mb-3">
-                    <p class="mb-2"><span class="badge-stock">En stock</span></p>
+                    <p class="mb-2"><span class="badge-stock">Disponible</span></p>
                     <label for="quantity" class="form-label small fw-semibold">Cantidad:</label>
                     <select id="quantity" class="form-select mb-3">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5+</option>
+                        <option value="5">5</option>
+                        <option value="10">10+</option>
                     </select>
                 </div>
 
-                <button class="btn btn-add-cart w-100 mb-2 py-2">Agregar al carrito</button>
-                <button class="btn btn-buy-now w-100 py-2 mb-3">Comprar ahora</button>
+                <button class="btn btn-add-cart w-100 mb-2 py-2" onclick="agregarAlCarrito()">
+                    <i class="bi bi-cart-plus me-1"></i>
+                    Agregar al carrito
+                </button>
+                <button class="btn btn-buy-now w-100 py-2 mb-3" onclick="comprarAhora()">
+                    <i class="bi bi-lightning-fill me-1"></i>
+                    Comprar ahora
+                </button>
 
                 <div class="small text-muted">
                     <p class="mb-2">🔒 Transacción segura</p>
-                    <p class="mb-2">📦 Envío por MiShop</p>
-                    <p class="mb-0">🔄 Devolución gratis 30 días</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- PESTAÑAS DE INFORMACIÓN -->
-    <div class="row mt-5">
-        <div class="col-12">
-            <ul class="nav nav-tabs mb-4" id="productTabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button">Descripción</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="specs-tab" data-bs-toggle="tab" data-bs-target="#specs" type="button">Especificaciones</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button">Reseñas (2,847)</button>
-                </li>
-            </ul>
-
-            <div class="tab-content bg-white p-4 rounded shadow-sm" id="productTabsContent">
-                <!-- Descripción -->
-                <div class="tab-pane fade show active" id="description" role="tabpanel">
-                    <h4 class="mb-4 fw-bold product-section-title">Descripción del producto</h4>
-                    <p>El <strong>Smartphone XYZ Pro Max</strong> representa la última innovación en tecnología móvil. Diseñado para usuarios exigentes que buscan el mejor rendimiento y la máxima calidad.</p>
-
-                    <h5 class="mt-4 mb-3 fw-bold">Características destacadas:</h5>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="p-3 bg-light rounded h-100">
-                                <div class="feature-icon">📱</div>
-                                <h6 class="fw-bold">Pantalla Inmersiva</h6>
-                                <p class="small mb-0">Disfruta de una experiencia visual incomparable con nuestra pantalla AMOLED de 6.7" y tasa de refresco de 120Hz para una fluidez extrema.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-3 bg-light rounded h-100">
-                                <div class="feature-icon">📸</div>
-                                <h6 class="fw-bold">Sistema de Cámara Profesional</h6>
-                                <p class="small mb-0">Captura cada momento con el sistema de triple cámara con sensor principal de 108MP, ultra gran angular de 12MP y teleobjetivo de 8MP.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-3 bg-light rounded h-100">
-                                <div class="feature-icon">⚡</div>
-                                <h6 class="fw-bold">Rendimiento Extremo</h6>
-                                <p class="small mb-0">Procesador Octa-Core de última generación con 12GB de RAM para ejecutar todas tus aplicaciones sin ralentizaciones.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-3 bg-light rounded h-100">
-                                <div class="feature-icon">🔋</div>
-                                <h6 class="fw-bold">Batería de Larga Duración</h6>
-                                <p class="small mb-0">Batería de 5000mAh con carga rápida de 65W. Carga completa en menos de 45 minutos.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Especificaciones -->
-                <div class="tab-pane fade" id="specs" role="tabpanel">
-                    <h4 class="mb-4 fw-bold product-section-title">Especificaciones técnicas</h4>
-                    <table class="table table-bordered spec-table">
-                        <tbody>
-                        <tr>
-                            <th>Pantalla</th>
-                            <td>6.7" AMOLED, 120Hz, 2400x1080px</td>
-                        </tr>
-                        <tr>
-                            <th>Procesador</th>
-                            <td>Octa-Core 3.2GHz</td>
-                        </tr>
-                        <tr>
-                            <th>Memoria RAM</th>
-                            <td>12GB LPDDR5</td>
-                        </tr>
-                        <tr>
-                            <th>Almacenamiento</th>
-                            <td>256GB UFS 3.1</td>
-                        </tr>
-                        <tr>
-                            <th>Cámara trasera</th>
-                            <td>108MP (principal) + 12MP (ultra gran angular) + 8MP (teleobjetivo)</td>
-                        </tr>
-                        <tr>
-                            <th>Cámara frontal</th>
-                            <td>32MP</td>
-                        </tr>
-                        <tr>
-                            <th>Batería</th>
-                            <td>5000mAh, carga rápida 65W</td>
-                        </tr>
-                        <tr>
-                            <th>Sistema operativo</th>
-                            <td>Android 14</td>
-                        </tr>
-                        <tr>
-                            <th>Conectividad</th>
-                            <td>5G, WiFi 6, Bluetooth 5.3, NFC</td>
-                        </tr>
-                        <tr>
-                            <th>Dimensiones</th>
-                            <td>163.3 x 75.9 x 8.9 mm</td>
-                        </tr>
-                        <tr>
-                            <th>Peso</th>
-                            <td>198g</td>
-                        </tr>
-                        <tr>
-                            <th>Colores</th>
-                            <td>Negro, Blanco, Azul</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Reseñas -->
-                <div class="tab-pane fade" id="reviews" role="tabpanel">
-                    <h4 class="mb-4 fw-bold product-section-title">Opiniones de clientes</h4>
-
-                    <!-- Resumen de reseñas -->
-                    <div class="row mb-4 pb-4 border-bottom">
-                        <div class="col-md-3 text-center">
-                            <div class="display-4 fw-bold product-price">4.5</div>
-                            <div class="star-rating h5">★★★★☆</div>
-                            <div class="small text-muted">2,847 calificaciones</div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="mb-2 d-flex align-items-center">
-                                <span class="me-2 small fw-semibold" style="width: 80px;">5 estrellas</span>
-                                <div class="progress flex-grow-1 me-2" style="height: 22px;">
-                                    <div class="progress-bar progress-bar-brand" style="width: 65%"></div>
-                                </div>
-                                <span class="small fw-semibold">65%</span>
-                            </div>
-                            <div class="mb-2 d-flex align-items-center">
-                                <span class="me-2 small fw-semibold" style="width: 80px;">4 estrellas</span>
-                                <div class="progress flex-grow-1 me-2" style="height: 22px;">
-                                    <div class="progress-bar progress-bar-brand" style="width: 20%"></div>
-                                </div>
-                                <span class="small fw-semibold">20%</span>
-                            </div>
-                            <div class="mb-2 d-flex align-items-center">
-                                <span class="me-2 small fw-semibold" style="width: 80px;">3 estrellas</span>
-                                <div class="progress flex-grow-1 me-2" style="height: 22px;">
-                                    <div class="progress-bar progress-bar-brand" style="width: 10%"></div>
-                                </div>
-                                <span class="small fw-semibold">10%</span>
-                            </div>
-                            <div class="mb-2 d-flex align-items-center">
-                                <span class="me-2 small fw-semibold" style="width: 80px;">2 estrellas</span>
-                                <div class="progress flex-grow-1 me-2" style="height: 22px;">
-                                    <div class="progress-bar progress-bar-brand" style="width: 3%"></div>
-                                </div>
-                                <span class="small fw-semibold">3%</span>
-                            </div>
-                            <div class="mb-2 d-flex align-items-center">
-                                <span class="me-2 small fw-semibold" style="width: 80px;">1 estrella</span>
-                                <div class="progress flex-grow-1 me-2" style="height: 22px;">
-                                    <div class="progress-bar progress-bar-brand" style="width: 2%"></div>
-                                </div>
-                                <span class="small fw-semibold">2%</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Reseñas individuales -->
-                    <div class="review-card">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div>
-                                <div class="fw-bold mb-1">María González</div>
-                                <div class="star-rating small">★★★★★</div>
-                            </div>
-                            <small class="text-muted">15 de octubre, 2025</small>
-                        </div>
-                        <h6 class="fw-semibold mb-2">¡Excelente teléfono!</h6>
-                        <p class="small mb-2">La cámara es increíble, las fotos salen con una calidad profesional. La batería dura todo el día sin problemas y la pantalla se ve espectacular. Muy satisfecha con mi compra.</p>
-                        <small class="text-muted">✓ Compra verificada</small>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div>
-                                <div class="fw-bold mb-1">Carlos Ramírez</div>
-                                <div class="star-rating small">★★★★☆</div>
-                            </div>
-                            <small class="text-muted">10 de octubre, 2025</small>
-                        </div>
-                        <h6 class="fw-semibold mb-2">Muy bueno, pero esperaba más</h6>
-                        <p class="small mb-2">El rendimiento es excelente y la pantalla es hermosa. Le quito una estrella porque se calienta un poco al jugar, pero en general es un gran teléfono por el precio.</p>
-                        <small class="text-muted">✓ Compra verificada</small>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div>
-                                <div class="fw-bold mb-1">Ana Martínez</div>
-                                <div class="star-rating small">★★★★★</div>
-                            </div>
-                            <small class="text-muted">5 de octubre, 2025</small>
-                        </div>
-                        <h6 class="fw-semibold mb-2">Superó mis expectativas</h6>
-                        <p class="small mb-2">Llegó muy rápido y bien empaquetado. El diseño es elegante, la velocidad es impresionante y el sistema de cámaras es fantástico. Totalmente recomendado.</p>
-                        <small class="text-muted">✓ Compra verificada</small>
-                    </div>
-
-                    <div class="text-center mt-4">
-                        <button class="btn btn-outline-secondary">Ver más reseñas</button>
-                    </div>
+                    <p class="mb-2">📦 Envío por KoKo Market</p>
+                    <p class="mb-0">🔄 Devolución gratis 15 días</p>
                 </div>
             </div>
         </div>
@@ -371,47 +183,8 @@
     <div class="row mt-5">
         <div class="col-12">
             <h4 class="mb-4 fw-bold product-section-title">Productos relacionados</h4>
-            <div class="row row-cols-2 row-cols-md-4 g-3">
-                <div class="col">
-                    <div class="card h-100 related-product">
-                        <img src="https://via.placeholder.com/300x300/ff7a8d/ffffff?text=Funda" class="card-img-top" alt="Funda protectora">
-                        <div class="card-body">
-                            <h6 class="card-title small">Funda Protectora Premium</h6>
-                            <p class="fw-bold mb-2 product-price">$29.99</p>
-                            <button class="btn btn-sm btn-outline-secondary w-100">Ver detalles</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 related-product">
-                        <img src="https://via.placeholder.com/300x300/e88dab/ffffff?text=Audífonos" class="card-img-top" alt="Audífonos">
-                        <div class="card-body">
-                            <h6 class="card-title small">Audífonos Bluetooth Pro</h6>
-                            <p class="fw-bold mb-2 product-price">$89.99</p>
-                            <button class="btn btn-sm btn-outline-secondary w-100">Ver detalles</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 related-product">
-                        <img src="https://via.placeholder.com/300x300/ff5268/ffffff?text=Cargador" class="card-img-top" alt="Cargador rápido">
-                        <div class="card-body">
-                            <h6 class="card-title small">Cargador Rápido 65W</h6>
-                            <p class="fw-bold mb-2 product-price">$39.99</p>
-                            <button class="btn btn-sm btn-outline-secondary w-100">Ver detalles</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 related-product">
-                        <img src="https://via.placeholder.com/300x300/240b15/ffffff?text=Protector" class="card-img-top" alt="Protector de pantalla">
-                        <div class="card-body">
-                            <h6 class="card-title small">Protector de Pantalla</h6>
-                            <p class="fw-bold mb-2 product-price">$19.99</p>
-                            <button class="btn btn-sm btn-outline-secondary w-100">Ver detalles</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="row row-cols-2 row-cols-md-4 g-3" id="relatedProductsContainer">
+                <!-- Los productos relacionados se cargarán con JavaScript -->
             </div>
         </div>
     </div>
@@ -425,38 +198,155 @@
             <a href="#" class="text-white text-decoration-none me-3">Términos y Condiciones</a>
             <a href="#" class="text-white text-decoration-none">Contacto</a>
         </div>
-        <div>&copy; 2025 MiShop - Todos los derechos reservados</div>
+        <div>&copy; 2025 KoKo Market - Todos los derechos reservados</div>
     </div>
 </footer>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- JavaScript para funcionalidad del producto -->
+<!-- JavaScript para cargar productos desde JSON -->
 <script>
+    let productosData = [];
+    let productoActual = null;
+
+    // Cargar productos desde JSON
+    async function cargarProductos() {
+        try {
+            const response = await fetch('productos.json');
+            productosData = await response.json();
+
+            // Obtener el ID del producto desde la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id')) || 1;
+
+            // Cargar el producto específico
+            cargarProducto(productId);
+        } catch (error) {
+            console.error('Error al cargar productos:', error);
+            mostrarError();
+        }
+    }
+
+    // Cargar un producto específico
+    function cargarProducto(id) {
+        productoActual = productosData.find(p => p.id === id);
+
+        if (!productoActual) {
+            mostrarError();
+            return;
+        }
+
+        // Actualizar información del producto
+        document.getElementById('productName').textContent = productoActual.nombre;
+        document.getElementById('productCategory').textContent = productoActual.categoria;
+        document.getElementById('productPrice').textContent = `$${productoActual.precio.toFixed(2)}`;
+        document.getElementById('productPriceSidebar').textContent = `$${productoActual.precio.toFixed(2)}`;
+
+        // Calcular precio anterior (15% más)
+        const precioAnterior = productoActual.precio / 0.85;
+        document.getElementById('productPriceOld').textContent = `Precio anterior: $${precioAnterior.toFixed(2)}`;
+
+        document.getElementById('productDescription').textContent = productoActual.descripcion;
+
+        // Actualizar breadcrumb
+        document.getElementById('breadcrumb-categoria').textContent = productoActual.categoria;
+        document.getElementById('breadcrumb-producto').textContent = productoActual.nombre;
+
+        // Cargar imagen principal
+        document.getElementById('mainImage').src = productoActual.imagen;
+        document.getElementById('mainImage').alt = productoActual.nombre;
+
+        // Generar thumbnails (simulamos 4 vistas del mismo producto)
+        generarThumbnails();
+
+        // Cargar productos relacionados
+        cargarProductosRelacionados();
+    }
+
+    // Generar thumbnails
+    function generarThumbnails() {
+        const container = document.getElementById('thumbnailsContainer');
+        container.innerHTML = '';
+
+        for (let i = 0; i < 4; i++) {
+            const img = document.createElement('img');
+            img.src = productoActual.imagen;
+            img.alt = `Vista ${i + 1}`;
+            img.className = 'product-thumbnail' + (i === 0 ? ' active' : '');
+            img.onclick = function() {
+                changeImage(this, productoActual.imagen);
+            };
+            container.appendChild(img);
+        }
+    }
+
+    // Cargar productos relacionados (misma categoría)
+    function cargarProductosRelacionados() {
+        const container = document.getElementById('relatedProductsContainer');
+        container.innerHTML = '';
+
+        const relacionados = productosData
+            .filter(p => p.categoria === productoActual.categoria && p.id !== productoActual.id)
+            .slice(0, 4);
+
+        // Si no hay suficientes de la misma categoría, agregar otros
+        if (relacionados.length < 4) {
+            const otros = productosData
+                .filter(p => p.id !== productoActual.id && !relacionados.includes(p))
+                .slice(0, 4 - relacionados.length);
+            relacionados.push(...otros);
+        }
+
+        relacionados.forEach(producto => {
+            const col = document.createElement('div');
+            col.className = 'col';
+            col.innerHTML = `
+                <div class="card h-100 related-product">
+                    <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+                    <div class="card-body">
+                        <h6 class="card-title small">${producto.nombre}</h6>
+                        <p class="fw-bold mb-2 product-price">$${producto.precio.toFixed(2)}</p>
+                        <a href="productos.html?id=${producto.id}" class="btn btn-sm btn-outline-secondary w-100">Ver detalles</a>
+                    </div>
+                </div>
+            `;
+            container.appendChild(col);
+        });
+    }
+
     // Cambiar imagen principal
     function changeImage(thumbnail, newSrc) {
         document.getElementById('mainImage').src = newSrc;
 
-        // Remover clase active de todos los thumbnails
         document.querySelectorAll('.product-thumbnail').forEach(thumb => {
             thumb.classList.remove('active');
         });
 
-        // Agregar clase active al thumbnail clickeado
         thumbnail.classList.add('active');
     }
 
-    // Seleccionar color
-    function selectColor(button) {
-        // Remover clase active de todos los botones
-        document.querySelectorAll('.color-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        // Agregar clase active al botón clickeado
-        button.classList.add('active');
+    // Agregar al carrito
+    function agregarAlCarrito() {
+        const cantidad = document.getElementById('quantity').value;
+        alert(`¡Producto agregado al carrito!\n\n${productoActual.nombre}\nCantidad: ${cantidad}\nPrecio: $${productoActual.precio.toFixed(2)}`);
     }
+
+    // Comprar ahora
+    function comprarAhora() {
+        const cantidad = document.getElementById('quantity').value;
+        const total = productoActual.precio * cantidad;
+        alert(`Compra rápida:\n\n${productoActual.nombre}\nCantidad: ${cantidad}\nTotal: $${total.toFixed(2)}\n\n¡Redirigiendo al pago!`);
+    }
+
+    // Mostrar error
+    function mostrarError() {
+        document.getElementById('productName').textContent = 'Producto no encontrado';
+        document.getElementById('productDescription').textContent = 'El producto que buscas no está disponible.';
+    }
+
+    // Cargar productos al iniciar la página
+    window.addEventListener('DOMContentLoaded', cargarProductos);
 </script>
 </body>
 </html>
