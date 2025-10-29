@@ -1,10 +1,345 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Nombre de la tab-->
+    <title>KoKo Market | Inicio</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Archivo Style -->
+    <link href="assets/css/styles.css" rel="stylesheet">
 </head>
-<body>
+
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+    <div class="container">
+        <!-- Nombre de la tienda -->
+        <a class="navbar-brand fw-bold" href="portada.html">KoKo Market</a>
+
+        <!-- Botón hamburguesa para móviles -->
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMain">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menú de navegación -->
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                <!-- Inicio -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="portada.html">Inicio</a>
+                </li>
+
+                <!-- Catálogo -->
+                <li class="nav-item">
+                    <a class="nav-link" href="catalogo.html">Catálogo</a>
+                </li>
+
+                <!-- Carrito -->
+                <li class="nav-item">
+                    <a class="nav-link" href="carrito.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart3 me-1" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                        </svg>
+                        Carrito
+                    </a>
+                </li>
+
+                <!-- Login -->
+                <li class="nav-item">
+                    <a class="nav-link" href="log.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle me-1" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                        </svg>
+                        Login
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- SECCIÓN PRINCIPAL -->
+<header class="py-5">
+    <div class="container">
+        <div class="row align-items-center g-4">
+
+            <!-- Texto principal -->
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold mb-3">
+                    Todo lo que necesitas, a tu manera
+                </h1>
+                <p class="lead mb-4">
+                    Productos frescos, snacks de moda y todo lo esencial.
+                </p>
+
+                <!-- Botón -->
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="catalogo.html" class="btn btn-primary btn-lg">Explorar Productos</a>
+                </div>
+            </div>
+
+            <!-- Imagen que cubre todo el rectángulo -->
+            <div class="col-lg-6">
+                <div style="height: 400px; overflow: hidden; border-radius: 1rem;" class="shadow">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3VwZXJtZXJjYWRvfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=900?w=800&h=400&fit=crop"
+                         alt="Productos frescos"
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<!-- NÚMEROS IMPORTANTES -->
+<section class="py-4 bg-white border-bottom">
+    <div class="container">
+        <div class="row row-cols-2 row-cols-md-4 g-3">
+
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3 class="h2 mb-0">30min</h3>
+                        <p class="text-muted small mb-0">Entrega Express</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3 class="h2 mb-0">5+</h3>
+                        <p class="text-muted small mb-0">Productos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3 class="h2 mb-0">100%</h3>
+                        <p class="text-muted small mb-0">Frescos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3 class="h2 mb-0">24/7</h3>
+                        <p class="text-muted small mb-0">Disponible</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- LO MÁS VENDIDO -->
+<section class="py-5">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">Lo Más Vendido</h2>
+            <a href="catalogo.html" class="product-link fw-bold">Ver todos →</a>
+        </div>
+
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3" id="mas-vendidos">
+            <!-- Los productos se cargan con JavaScript al final -->
+        </div>
+    </div>
+</section>
+
+<!-- SOBRE NOSOTROS -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center g-4">
+
+            <!-- Imagen -->
+            <div class="col-lg-5">
+                <div style="height: 450px; overflow: hidden; border-radius: 1rem;" class="shadow">
+                    <img src="https://www.quitoinforma.gob.ec/wp-content/uploads/2017/11/Foto-1-2.jpg?w=500&h=450&fit=crop"
+                         alt="Historia de KoKo Market"
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+            <!-- Texto -->
+            <div class="col-lg-7">
+                <h2 class="mb-4">Sobre Nosotros</h2>
+                <p class="mb-3">
+                    KoKo Market surge de una profunda herencia familiar. Su inspiración se remonta a la pasión de Don Eduardo,
+                    bisabuelo de uno de nuestros fundadores, quien en la década de los 50 forjó su experiencia como trabajador en
+                    los vibrantes mercados tradicionales de Quito.
+
+                    El mayor anhelo de Don Eduardo fue materializar su propia visión: abrir un supermercado que se distinguiera por
+                    ser amigable, justo y único, ofreciendo siempre productos de la más alta calidad. Hoy, KoKo Market es el cumplimiento
+                    de ese sueño. Con cada pasillo y cada producto, honramos su legado y nos comprometemos a mantener viva su visión original.
+                </p>
+                <div class="d-flex gap-3">
+                    <div>
+                        <h4 class="mb-1">2025</h4>
+                        <p class="text-muted small mb-0">Fundación</p>
+                    </div>
+                    <div class="border-start ps-3">
+                        <h4 class="mb-1">1+</h4>
+                        <p class="text-muted small mb-0">Semana de experiencia</p>
+                    </div>
+                    <div class="border-start ps-3">
+                        <h4 class="mb-1">3+</h4>
+                        <p class="text-muted small mb-0">Clientes satisfechos</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- POR QUÉ KOKO MARKET -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <h2 class="mb-4 text-center">¿Por qué KoKo Market?</h2>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <!-- Ventaja 1 -->
+            <div class="col">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <div class="feature-icon">🚀</div>
+                        <h5 class="card-title">Entrega Rápida</h5>
+                        <p class="text-muted">
+                            Tu pedido en 30 minutos o es gratis.
+                            Entregamos cuando te convenga.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ventaja 2 -->
+            <div class="col">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <div class="feature-icon">🌱</div>
+                        <h5 class="card-title">Productos Frescos</h5>
+                        <p class="text-muted">
+                            Seleccionamos lo mejor cada día.
+                            Garantía de frescura o te devolvemos tu dinero.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ventaja 3 -->
+            <div class="col">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <div class="feature-icon">💰</div>
+                        <h5 class="card-title">Precios Justos</h5>
+                        <p class="text-muted">
+                            Ofertas semanales y precios competitivos
+                            sin sacrificar calidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- PIE DE PÁGINA -->
+<footer class="py-4 mt-auto">
+    <div class="container text-center small">
+
+        <!-- Links -->
+        <div class="mb-3">
+            <a href="#" class="text-white text-decoration-none me-3">Política de Privacidad</a>
+            <a href="#" class="text-white text-decoration-none me-3">Términos</a>
+            <a href="#contacto" class="text-white text-decoration-none me-3">Contacto</a>
+            <a href="#" class="text-white text-decoration-none">Trabaja con Nosotros</a>
+        </div>
+
+        <!-- Copyright -->
+        <p class="mb-0">&copy; 2025 KoKo Market - Tu Súper Inteligente</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script para cargar productos más vendidos -->
+<script>
+    // Lista de productos - FRUTAS con imágenes del mismo tamaño
+    const productos = [
+        {
+            nombre: 'Manzanas Rojas',
+            precio: '$3.99',
+            imagen: 'https://plus.unsplash.com/premium_photo-1674262320834-02e1779bd1bb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFuemFuYXMlMjByb2phc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000?q=80&w=400&h=300&auto=format&fit=crop'
+        },
+        {
+            nombre: 'Plátanos Frescos',
+            precio: '$2.49',
+            imagen: 'https://images.unsplash.com/photo-1603833665858-e61d17a86224?q=80&w=400&h=300&auto=format&fit=crop'
+        },
+        {
+            nombre: 'Fresas Premium',
+            precio: '$5.99',
+            imagen: 'https://images.unsplash.com/photo-1543528176-61b239494933?q=80&w=400&h=300&auto=format&fit=crop'
+        },
+        {
+            nombre: 'Naranjas Jugosas',
+            precio: '$4.49',
+            imagen: 'https://images.unsplash.com/photo-1582979512210-99b6a53386f9?q=80&w=400&h=300&auto=format&fit=crop'
+        },
+        {
+            nombre: 'Uvas Verdes',
+            precio: '$6.99',
+            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpR-ieJECRn0T-0QHUTGRrYum-GEdTKHZsQ&s?w=400&h=300&fit=crop'
+        },
+        {
+            nombre: 'Sandía Dulce',
+            precio: '$7.99',
+            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSojae9-0GvHs0Xi6HgMWlz0VR8f0gaCBRGBi8GrEaTw8mkDstX9uIFn_0A2HvOfdB97Qc&usqp=CAU?w=400&h=300&fit=crop'
+        }
+    ];
+
+    // Obtener el contenedor donde van los productos
+    const contenedor = document.getElementById('mas-vendidos');
+
+    // Crear una tarjeta por cada producto con imágenes del mismo tamaño
+    productos.forEach(function(producto) {
+        const html = `
+                <div class="col">
+                    <div class="card h-100">
+                        <div style="height: 200px; overflow: hidden;">
+                            <img src="${producto.imagen}"
+                                 class="card-img-top"
+                                 alt="${producto.nombre}"
+                                 style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="card-body">
+                            <h6 class="fw-semibold mb-1">${producto.nombre}</h6>
+                            <p class="mb-0 product-price fw-bold">${producto.precio}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        contenedor.innerHTML += html;
+    });
+</script>
 
 </body>
 </html>
