@@ -276,11 +276,11 @@
                 } catch (err) {
                     console.error(err);
                     el.grid.innerHTML = `
-          <div class="col-12">
+            <div class="col-12">
             <div class="alert alert-danger">
-              No se pudo cargar el catálogo. Revisa la ruta del JSON (<code>${DATA_URL}</code>) o el formato.
+            No se pudo cargar el catálogo. Revisa la ruta del JSON (<code>${DATA_URL}</code>) o el formato.
             </div>
-          </div>`;
+            </div>`;
                 } finally {
                     el.status.style.display = 'none';
                 }
