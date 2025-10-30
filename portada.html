@@ -1,30 +1,175 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-EC">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Nombre de la tab-->
-    <title>KoKo Market | Inicio</title>
+    <title>KoKo Market | Inicio - Tu Súper de Barrio</title>
+    <meta name="description" content="KoKo Market - Supermercado ecuatoriano con productos frescos y entrega rápida en Quito">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Archivo Style -->
+    <!-- Archivo Style del usuario -->
     <link href="assets/css/styles.css" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           ESTILOS ADICIONALES PARA COHERENCIA CULTURAL
+           Respetando completamente el CSS original del usuario
+           ============================================ */
+
+        /* Mejora de accesibilidad en imágenes */
+        .img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* Badge cultural ecuatoriano */
+        .badge-cultural {
+            background: linear-gradient(135deg, var(--brand) 0%, var(--brand-accent) 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 4px;
+            font-family: 'Crimson Text', serif;
+            box-shadow: 0 2px 8px rgba(255, 173, 51, 0.3);
+        }
+
+        /* Ícono en navbar brand */
+        .navbar-brand::before {
+            content: "🏪";
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+
+        /* Línea decorativa cultural */
+        .decorative-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--brand), var(--brand-accent));
+            margin: 16px auto;
+            border-radius: 2px;
+        }
+
+        /* Estadísticas con iconos */
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* Íconos de características */
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* Animaciones suaves */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hover en links de productos */
+        .product-link {
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .product-link:hover {
+            transform: translateX(5px);
+        }
+
+        /* Mejora de contraste en header para legibilidad */
+        header h1,
+        header .display-5 {
+            color: white !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        header p,
+        header .lead {
+            color: white !important;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sección "Sobre Nosotros" con fondo sutil */
+        .about-section {
+            background: linear-gradient(to bottom, #FFFFFF 0%, var(--light-bg) 100%);
+        }
+
+        /* Stats section con mejor espaciado */
+        .stats-wrapper {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .stat-item h4 {
+            color: var(--brand);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-item p {
+            color: var(--ink);
+            opacity: 0.8;
+        }
+
+        /* Texto en footer */
+        footer p {
+            margin-bottom: 0.5rem;
+            opacity: 0.95;
+        }
+
+        /* Responsive para badges */
+        @media (max-width: 768px) {
+            .badge-cultural {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+
+            .decorative-line {
+                width: 50px;
+                height: 3px;
+            }
+        }
+    </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 
 <!-- Barra de navegación -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
     <div class="container">
-        <!-- Nombre de la tienda -->
+        <!-- Nombre de la tienda con identidad cultural (ícono en CSS) -->
         <a class="navbar-brand fw-bold" href="portada.html">KoKo Market</a>
 
         <!-- Botón hamburguesa para móviles -->
         <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#navbarMain">
+                data-bs-target="#navbarMain"
+                aria-label="Menú de navegación">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -33,7 +178,7 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                 <!-- Inicio -->
                 <li class="nav-item">
-                    <a class="nav-link active" href="portada.html">Inicio</a>
+                    <a class="nav-link active" href="portada.html" aria-current="page">Inicio</a>
                 </li>
 
                 <!-- Catálogo -->
@@ -44,7 +189,7 @@
                 <!-- Carrito -->
                 <li class="nav-item">
                     <a class="nav-link" href="carrito.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart3 me-1" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart3 me-1" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                         </svg>
                         Carrito
@@ -54,11 +199,11 @@
                 <!-- Login -->
                 <li class="nav-item">
                     <a class="nav-link" href="log.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle me-1" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle me-1" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                         </svg>
-                        Login
+                        Ingresar
                     </a>
                 </li>
             </ul>
@@ -67,31 +212,43 @@
 </nav>
 
 <!-- SECCIÓN PRINCIPAL -->
-<header class="py-5">
+<header class="py-5 fade-in">
     <div class="container">
         <div class="row align-items-center g-4">
 
             <!-- Texto principal -->
             <div class="col-lg-6">
+                <!-- Badge cultural ecuatoriano -->
+                <div class="mb-3">
+                    <span class="badge-cultural">🇪🇨 100% Ecuatoriano</span>
+                </div>
+
                 <h1 class="display-5 fw-bold mb-3">
                     Todo lo que necesitas, a tu manera
                 </h1>
                 <p class="lead mb-4">
                     Productos frescos, snacks de moda y todo lo esencial.
+                    <strong>Tu súper de barrio, ahora más cerca.</strong>
                 </p>
 
                 <!-- Botón -->
                 <div class="d-flex gap-3 flex-wrap">
-                    <a href="catalogo.html" class="btn btn-primary btn-lg">Explorar Productos</a>
+                    <a href="catalogo.html" class="btn btn-primary btn-lg">
+                        Explorar Productos
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="ms-2" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
 
-            <!-- Imagen que cubre todo el rectángulo -->
+            <!-- Imagen contextualizada -->
             <div class="col-lg-6">
-                <div style="height: 400px; overflow: hidden; border-radius: 1rem;" class="shadow">
-                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3VwZXJtZXJjYWRvfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=900?w=800&h=400&fit=crop"
-                         alt="Productos frescos"
-                         style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="img-wrapper" style="height: 400px; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3VwZXJtZXJjYWRvfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=900"
+                         alt="Productos frescos en KoKo Market - Supermercado ecuatoriano"
+                         style="width: 100%; height: 100%; object-fit: cover;"
+                         loading="lazy">
                 </div>
             </div>
 
@@ -99,14 +256,17 @@
     </div>
 </header>
 
-<!-- NÚMEROS IMPORTANTES -->
-<section class="py-4 bg-white border-bottom">
+
+
+<!-- NÚMEROS IMPORTANTES con iconografía cultural -->
+<section class="py-4 bg-white border-bottom fade-in">
     <div class="container">
         <div class="row row-cols-2 row-cols-md-4 g-3">
 
             <div class="col">
                 <div class="card text-center">
                     <div class="card-body">
+                        <span class="stat-icon">⚡</span>
                         <h3 class="h2 mb-0">30min</h3>
                         <p class="text-muted small mb-0">Entrega Express</p>
                     </div>
@@ -116,6 +276,7 @@
             <div class="col">
                 <div class="card text-center">
                     <div class="card-body">
+                        <span class="stat-icon">🛒</span>
                         <h3 class="h2 mb-0">5+</h3>
                         <p class="text-muted small mb-0">Productos</p>
                     </div>
@@ -125,6 +286,7 @@
             <div class="col">
                 <div class="card text-center">
                     <div class="card-body">
+                        <span class="stat-icon">🌱</span>
                         <h3 class="h2 mb-0">100%</h3>
                         <p class="text-muted small mb-0">Frescos</p>
                     </div>
@@ -134,6 +296,7 @@
             <div class="col">
                 <div class="card text-center">
                     <div class="card-body">
+                        <span class="stat-icon">🕐</span>
                         <h3 class="h2 mb-0">24/7</h3>
                         <p class="text-muted small mb-0">Disponible</p>
                     </div>
@@ -145,56 +308,67 @@
 </section>
 
 <!-- LO MÁS VENDIDO -->
-<section class="py-5">
+<section class="py-5 fade-in">
     <div class="container">
 
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="mb-0">Lo Más Vendido</h2>
-            <a href="catalogo.html" class="product-link fw-bold">Ver todos →</a>
+        <div class="text-center mb-4">
+            <h2 class="mb-2">Lo Más Vendido</h2>
+            <div class="decorative-line"></div>
+            <p class="text-muted">Los favoritos de nuestros clientes</p>
         </div>
 
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3" id="mas-vendidos">
             <!-- Los productos se cargan con JavaScript al final -->
         </div>
+
+        <div class="text-center mt-4">
+            <a href="catalogo.html" class="product-link fw-bold">Ver todos los productos →</a>
+        </div>
     </div>
 </section>
 
-<!-- SOBRE NOSOTROS -->
-<section class="py-5 bg-light">
+<!-- SOBRE NOSOTROS con narrativa cultural -->
+<section class="py-5 about-section fade-in">
     <div class="container">
         <div class="row align-items-center g-4">
 
             <!-- Imagen -->
             <div class="col-lg-5">
-                <div style="height: 450px; overflow: hidden; border-radius: 1rem;" class="shadow">
-                    <img src="https://www.quitoinforma.gob.ec/wp-content/uploads/2017/11/Foto-1-2.jpg?w=500&h=450&fit=crop"
-                         alt="Historia de KoKo Market"
-                         style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="img-wrapper" style="height: 450px; overflow: hidden;">
+                    <img src="https://videos.openai.com/az/vg-assets/assets%2Ftask_01jzhp4ch1fcab6xztzw5wy43d%2F1751866691_img_0.webp?se=2025-11-05T12%3A00%3A34Z&sp=r&sv=2024-08-04&sr=b&skoid=1af02b11-169c-463d-b441-d2ccfc9f02c8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-10-30T06%3A29%3A05Z&ske=2025-11-06T06%3A34%3A05Z&sks=b&skv=2024-08-04&sig=tT14rfLdMEyoMozibOv3l739ejWHYN5yyDjlkcAFuig%3D&ac=oaivgprodscus"
+                         alt="Mercado tradicional de Quito - Historia de KoKo Market"
+                         style="width: 100%; height: 100%; object-fit: cover;"
+                         loading="lazy">
                 </div>
             </div>
 
-            <!-- Texto -->
+            <!-- Texto con identidad -->
             <div class="col-lg-7">
-                <h2 class="mb-4">Sobre Nosotros</h2>
+                <span class="badge-cultural">🏔️ Tradición Quiteña</span>
+                <h2 class="mt-3 mb-4">Sobre Nosotros</h2>
+                <div class="decorative-line" style="margin-left: 0;"></div>
+
                 <p class="mb-3">
-                    KoKo Market surge de una profunda herencia familiar. Su inspiración se remonta a la pasión de Don Eduardo,
+                    KoKo Market surge de una profunda herencia familiar. Su inspiración se remonta a la pasión de <strong>Don Eduardo</strong>,
                     bisabuelo de uno de nuestros fundadores, quien en la década de los 50 forjó su experiencia como trabajador en
                     los vibrantes mercados tradicionales de Quito.
-
-                    El mayor anhelo de Don Eduardo fue materializar su propia visión: abrir un supermercado que se distinguiera por
-                    ser amigable, justo y único, ofreciendo siempre productos de la más alta calidad. Hoy, KoKo Market es el cumplimiento
-                    de ese sueño. Con cada pasillo y cada producto, honramos su legado y nos comprometemos a mantener viva su visión original.
                 </p>
-                <div class="d-flex gap-3">
-                    <div>
+                <p class="mb-4">
+                    El mayor anhelo de Don Eduardo fue materializar su propia visión: abrir un supermercado que se distinguiera por
+                    ser amigable, justo y único, ofreciendo siempre productos de la más alta calidad. <strong>Hoy, KoKo Market es el cumplimiento
+                    de ese sueño.</strong> Con cada pasillo y cada producto, honramos su legado y nos comprometemos a mantener viva su visión original.
+                </p>
+
+                <div class="stats-wrapper">
+                    <div class="stat-item">
                         <h4 class="mb-1">2025</h4>
                         <p class="text-muted small mb-0">Fundación</p>
                     </div>
-                    <div class="border-start ps-3">
+                    <div class="stat-item border-start ps-3">
                         <h4 class="mb-1">1+</h4>
                         <p class="text-muted small mb-0">Semana de experiencia</p>
                     </div>
-                    <div class="border-start ps-3">
+                    <div class="stat-item border-start ps-3">
                         <h4 class="mb-1">3+</h4>
                         <p class="text-muted small mb-0">Clientes satisfechos</p>
                     </div>
@@ -206,42 +380,46 @@
 </section>
 
 
-<!-- POR QUÉ KOKO MARKET -->
-<section class="py-5 bg-white">
+<!-- POR QUÉ KOKO MARKET con iconografía significativa -->
+<section class="py-5 bg-white fade-in">
     <div class="container">
-        <h2 class="mb-4 text-center">¿Por qué KoKo Market?</h2>
+        <div class="text-center mb-5">
+            <h2 class="mb-2">¿Por qué KoKo Market?</h2>
+            <div class="decorative-line"></div>
+            <p class="text-muted">Tu aliado de confianza para el día a día</p>
+        </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
 
-            <!-- Ventaja 1 -->
+            <!-- Ventaja 1: Rapidez ecuatoriana -->
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
                         <div class="feature-icon">🚀</div>
                         <h5 class="card-title">Entrega Rápida</h5>
                         <p class="text-muted">
-                            Tu pedido en 30 minutos o es gratis.
-                            Entregamos cuando te convenga.
+                            Tu pedido en <strong>30 minutos</strong> o es gratis.
+                            Entregamos cuando te convenga, como en el mercado de tu barrio.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Ventaja 2 -->
+            <!-- Ventaja 2: Frescura andina -->
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
                         <div class="feature-icon">🌱</div>
                         <h5 class="card-title">Productos Frescos</h5>
                         <p class="text-muted">
-                            Seleccionamos lo mejor cada día.
-                            Garantía de frescura o te devolvemos tu dinero.
+                            Seleccionamos lo mejor cada día, directo de productores locales.
+                            <strong>Garantía de frescura</strong> o te devolvemos tu dinero.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Ventaja 3 -->
+            <!-- Ventaja 3: Justicia comercial -->
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
@@ -249,7 +427,7 @@
                         <h5 class="card-title">Precios Justos</h5>
                         <p class="text-muted">
                             Ofertas semanales y precios competitivos
-                            sin sacrificar calidad.
+                            sin sacrificar calidad. <strong>Honestidad en cada transacción.</strong>
                         </p>
                     </div>
                 </div>
@@ -260,20 +438,21 @@
 </section>
 
 
-<!-- PIE DE PÁGINA -->
+<!-- PIE DE PÁGINA con identidad -->
 <footer class="py-4 mt-auto">
     <div class="container text-center small">
 
         <!-- Links -->
         <div class="mb-3">
             <a href="#" class="text-white text-decoration-none me-3">Política de Privacidad</a>
-            <a href="#" class="text-white text-decoration-none me-3">Términos</a>
+            <a href="#" class="text-white text-decoration-none me-3">Términos y Condiciones</a>
             <a href="#contacto" class="text-white text-decoration-none me-3">Contacto</a>
             <a href="#" class="text-white text-decoration-none">Trabaja con Nosotros</a>
         </div>
 
-        <!-- Copyright -->
-        <p class="mb-0">&copy; 2025 KoKo Market - Tu Súper Inteligente</p>
+        <!-- Copyright con identidad -->
+        <p class="mb-2">&copy; 2025 KoKo Market - Tu Súper Inteligente</p>
+        <p class="mb-0" style="opacity: 0.9;">🇪🇨 Hecho en Ecuador con amor | Quito, Pichincha</p>
     </div>
 </footer>
 
@@ -287,32 +466,38 @@
         {
             nombre: 'Manzanas Rojas',
             precio: '$3.99',
-            imagen: 'https://plus.unsplash.com/premium_photo-1674262320834-02e1779bd1bb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFuemFuYXMlMjByb2phc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000?q=80&w=400&h=300&auto=format&fit=crop'
+            imagen: 'https://plus.unsplash.com/premium_photo-1674262320834-02e1779bd1bb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFuemFuYXMlMjByb2phc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000',
+            alt: 'Manzanas rojas frescas'
         },
         {
             nombre: 'Plátanos Frescos',
             precio: '$2.49',
-            imagen: 'https://images.unsplash.com/photo-1603833665858-e61d17a86224?q=80&w=400&h=300&auto=format&fit=crop'
+            imagen: 'https://images.unsplash.com/photo-1603833665858-e61d17a86224?q=80&w=400&h=300&auto=format&fit=crop',
+            alt: 'Plátanos ecuatorianos frescos'
         },
         {
             nombre: 'Fresas Premium',
             precio: '$5.99',
-            imagen: 'https://images.unsplash.com/photo-1543528176-61b239494933?q=80&w=400&h=300&auto=format&fit=crop'
+            imagen: 'https://images.unsplash.com/photo-1543528176-61b239494933?q=80&w=400&h=300&auto=format&fit=crop',
+            alt: 'Fresas premium frescas'
         },
         {
             nombre: 'Naranjas Jugosas',
             precio: '$4.49',
-            imagen: 'https://images.unsplash.com/photo-1582979512210-99b6a53386f9?q=80&w=400&h=300&auto=format&fit=crop'
+            imagen: 'https://images.unsplash.com/photo-1582979512210-99b6a53386f9?q=80&w=400&h=300&auto=format&fit=crop',
+            alt: 'Naranjas jugosas y frescas'
         },
         {
             nombre: 'Uvas Verdes',
             precio: '$6.99',
-            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpR-ieJECRn0T-0QHUTGRrYum-GEdTKHZsQ&s?w=400&h=300&fit=crop'
+            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpR-ieJECRn0T-0QHUTGRrYum-GEdTKHZsQ&s',
+            alt: 'Uvas verdes frescas sin semilla'
         },
         {
             nombre: 'Sandía Dulce',
             precio: '$7.99',
-            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSojae9-0GvHs0Xi6HgMWlz0VR8f0gaCBRGBi8GrEaTw8mkDstX9uIFn_0A2HvOfdB97Qc&usqp=CAU?w=400&h=300&fit=crop'
+            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSojae9-0GvHs0Xi6HgMWlz0VR8f0gaCBRGBi8GrEaTw8mkDstX9uIFn_0A2HvOfdB97Qc&usqp=CAU',
+            alt: 'Sandía dulce y fresca'
         }
     ];
 
@@ -322,21 +507,22 @@
     // Crear una tarjeta por cada producto con imágenes del mismo tamaño
     productos.forEach(function(producto) {
         const html = `
-                <div class="col">
-                    <div class="card h-100">
-                        <div style="height: 200px; overflow: hidden;">
-                            <img src="${producto.imagen}"
-                                 class="card-img-top"
-                                 alt="${producto.nombre}"
-                                 style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="card-body">
-                            <h6 class="fw-semibold mb-1">${producto.nombre}</h6>
-                            <p class="mb-0 product-price fw-bold">${producto.precio}</p>
-                        </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div style="height: 200px; overflow: hidden;">
+                        <img src="${producto.imagen}"
+                             class="card-img-top"
+                             alt="${producto.alt}"
+                             style="width: 100%; height: 100%; object-fit: cover;"
+                             loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h6 class="fw-semibold mb-1">${producto.nombre}</h6>
+                        <p class="mb-0 product-price fw-bold">${producto.precio}</p>
                     </div>
                 </div>
-            `;
+            </div>
+        `;
         contenedor.innerHTML += html;
     });
 </script>
