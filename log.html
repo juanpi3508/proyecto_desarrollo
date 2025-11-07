@@ -127,6 +127,31 @@
     </div>
 </div>
 
+<!-- JQUERY -->
+<script>
+    $(function () {
+        // jQuery listo
+        $("#btn").on("click", () => $("#saludo").text("¡Hola desde jQuery!"));
+    });
+</script>
+
+<!-- Pantalla de recarga -->
+<div class="loading" style="display:none;">
+    <h2>Cargando...</h2>
+</div>
+
+<!-- Pantalla de Inicio de Sesion -->
+<div class="success" style="display:none;">
+    <h2>¡Inicio de sesión exitoso! </h2>
+    <a href="catalogo.html" class="btn btn-primary mt-3">Ir al catálogo</a>
+</div>
+
+<div class="error" style="display:none;">
+    <h2>Ocurrió un error</h2>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="assets/js/load.js"></script>
+
 <!-- FOOTER -->
 <footer class="bg-dark text-white py-4 mt-auto">
     <div class="container text-center small">
