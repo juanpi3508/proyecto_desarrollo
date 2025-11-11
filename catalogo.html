@@ -7,71 +7,42 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Estilos -->
     <link href="assets/css/styles.css" rel="stylesheet" />
+
     <style>
         .card-img-top { object-fit: cover; height: 220px; }
         #statusMsg { display:none; }
     </style>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
+
 <body class="d-flex flex-column min-vh-100">
 
-<!-- ============================
-     BARRA SUPERIOR / NAVBAR
-=============================== -->
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
     <div class="container">
-        <!-- Nombre de la tienda -->
         <a class="navbar-brand fw-bold" href="portada.html">KoKo Market</a>
 
-        <!-- Botón hamburguesa para telefono -->
         <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarMain">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Menú de navegacion -->
         <div class="collapse navbar-collapse" id="navbarMain">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                <!-- Inicio -->
-                <li class="nav-item">
-                    <a class="nav-link active" href="portada.html">Inicio</a>
-                </li>
-
-                <!-- Catálogo -->
-                <li class="nav-item">
-                    <a class="nav-link" href="catalogo.html">Catálogo</a>
-                </li>
-
-                <!-- Carrito -->
-                <li class="nav-item">
-                    <a class="nav-link" href="carrito.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart3 me-1" viewBox="0 0 16 16">
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-                        </svg>
-                        Carrito
-                    </a>
-                </li>
-
-                <!-- Login -->
-                <li class="nav-item">
-                    <a class="nav-link" href="log.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle me-1" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                        </svg>
-                        Login
-                    </a>
-                </li>
+                <li class="nav-item"><a class="nav-link active" href="portada.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+                <li class="nav-item"><a class="nav-link" href="carrito.html"><i class="bi bi-cart3 me-1"></i> Carrito</a></li>
+                <li class="nav-item"><a class="nav-link" href="log.html"><i class="bi bi-person-circle me-1"></i> Login</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- ============================
-          HEADER
-=============================== -->
+<!-- HEADER -->
 <header class="bg-light py-5 text-center border-bottom">
     <div class="container">
         <h1 class="display-5 fw-bold mb-2">Bienvenido a KoKo Market</h1>
@@ -79,22 +50,21 @@
     </div>
 </header>
 
-<!-- ============================
-     CONTENIDO PRINCIPAL
-=============================== -->
+<!-- CATÁLOGO -->
 <main class="container my-5" id="catalogo">
-    <!-- Barra de búsqueda, filtros y orden -->
     <div class="d-flex flex-column flex-md-row gap-2 align-items-md-end align-items-stretch mb-4">
         <div class="flex-grow-1">
             <label for="q" class="form-label mb-1">Buscar</label>
             <input id="q" class="form-control" type="search" placeholder="Nombre, descripción, marca…" />
         </div>
+
         <div style="min-width: 220px;">
             <label for="cat" class="form-label mb-1">Categoría</label>
             <select id="cat" class="form-select">
                 <option value="">Todas</option>
             </select>
         </div>
+
         <div style="min-width: 220px;">
             <label for="sort" class="form-label mb-1">Ordenar por</label>
             <select id="sort" class="form-select">
@@ -107,16 +77,11 @@
         </div>
     </div>
 
-    <!-- Mensaje de carga -->
     <div id="statusMsg" class="alert alert-info py-2">Cargando productos…</div>
-
-    <!-- Contenedor donde se insertan las tarjetas -->
     <div id="grid" class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3"></div>
 </main>
 
-<!-- ============================
-            FOOTER
-=============================== -->
+<!-- FOOTER -->
 <footer class="bg-dark text-white py-4 mt-auto">
     <div class="container text-center small">
         <div class="mb-2">
@@ -131,169 +96,8 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- ============================
-     SCRIPT: Catálogo desde JSON
-=============================== -->
-<script>
-    /* === CONFIGURACIÓN BASE === */
-    const DATA_URL = 'productos.json';
+<!-- ✅ ARCHIVO GENERAL CON TODO EL JS CONVERTIDO A JQUERY -->
+<script src="assets/js/productos.js"></script>
 
-    const state = {
-        all: [],
-        filtered: [],
-        q: '',
-        cat: '',
-        sort: 'relevance'
-    };
-
-    const el = {
-        grid: document.getElementById('grid'),
-        status: document.getElementById('statusMsg'),
-        q: document.getElementById('q'),
-        cat: document.getElementById('cat'),
-        sort: document.getElementById('sort')
-    };
-
-    const fmtCurrency = (n, locale = 'es-EC', currency = 'USD') =>
-        new Intl.NumberFormat(locale, { style: 'currency', currency }).format(n);
-
-    function unique(arr) { return [...new Set(arr)]; }
-
-    /* === BLOQUE: RENDERIZAR CATEGORÍAS === */
-    function renderCategories(items) {
-        const cats = unique(items.map(p => p.categoria).filter(Boolean)).sort((a,b)=>a.localeCompare(b));
-        el.cat.innerHTML = '<option value="">Todas</option>' + cats.map(c => `<option value="${c}">${c}</option>`).join('');
-    }
-
-    /* === BLOQUE: RENDERIZAR TARJETAS DE PRODUCTOS === */
-    function renderGrid(items) {
-        if (!items.length) {
-            el.grid.innerHTML = '<div class="col-12"><div class="alert alert-warning">No se encontraron productos.</div></div>';
-            return;
-        }
-
-        const cards = items.map(p => {
-            const img = p.imagen || 'https://via.placeholder.com/600x600?text=Sin+imagen';
-            const badge = p.stock === 0 ? '<span class="badge text-bg-secondary">Agotado</span>' : '';
-            const price = fmtCurrency(p.precio ?? 0);
-
-            // Enlace a la página de producto con el ID
-            const url = `productos.html?id=${encodeURIComponent(p.id)}`;
-
-            return `
-              <div class="col">
-                <div class="card h-100">
-                  <!-- Enlace principal a la ficha del producto -->
-            <a href="${url}" class="text-decoration-none text-reset">
-            <img src="${img}" class="card-img-top" alt="${p.nombre || 'Producto'}" loading="lazy">
-            </a>
-
-            <div class="card-body d-flex flex-column">
-            <div class="d-flex align-items-start justify-content-between gap-2">
-            <h6 class="card-title mb-1">
-            <a href="${url}" class="stretched-link text-decoration-none text-reset">
-            ${p.nombre || 'Producto'}
-            </a>
-            </h6>
-            ${badge}
-            </div>
-            <p class="text-muted small mb-2">${p.marca || ''}${p.marca && p.categoria ? ' · ' : ''}${p.categoria || ''}</p>
-            <p class="fw-bold mb-3">${price}</p>
-            </div>
-            </div>
-            </div>`;
-        }).join('');
-
-        el.grid.innerHTML = cards;
-    }
-
-    /* === BLOQUE: FILTROS Y ORDEN === */
-    function applyFilters() {
-        const q = state.q.trim().toLowerCase();
-        const cat = state.cat;
-
-        let items = state.all.filter(p => {
-            const matchesText = !q || [p.nombre, p.descripcion, p.marca, p.categoria]
-                .filter(Boolean)
-                .some(v => String(v).toLowerCase().includes(q));
-            const matchesCat = !cat || p.categoria === cat;
-            return matchesText && matchesCat;
-        });
-
-        switch (state.sort) {
-            case 'price-asc':
-                items.sort((a,b)=> (a.precio ?? 0) - (b.precio ?? 0));
-                break;
-            case 'price-desc':
-                items.sort((a,b)=> (b.precio ?? 0) - (a.precio ?? 0));
-                break;
-            case 'name-asc':
-                items.sort((a,b)=> (a.nombre||'').localeCompare(b.nombre||''));
-                break;
-            case 'name-desc':
-                items.sort((a,b)=> (b.nombre||'').localeCompare(a.nombre||''));
-                break;
-            default:
-                break;
-        }
-
-        state.filtered = items;
-        renderGrid(items);
-    }
-
-            // Leer parámetro de categoría desde la URL
-            function aplicarCategoriaDesdeURL() {
-                const urlParams = new URLSearchParams(window.location.search);
-                const categoria = urlParams.get('categoria');
-
-                if (categoria) {
-                    // Esperar a que se carguen las categorías
-                    setTimeout(() => {
-                        el.cat.value = categoria;
-                        state.cat = categoria;
-                        applyFilters();
-
-                        // Scroll suave al catálogo
-                        document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
-                }
-            }
-
-// Modificar la carga de productos
-            async function loadProducts() {
-                try {
-                    el.status.style.display = 'block';
-                    const res = await fetch(DATA_URL, { cache: 'no-store' });
-                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                    const data = await res.json();
-                    if (!Array.isArray(data)) throw new Error('El JSON debe ser un array de productos');
-                    state.all = data;
-                    renderCategories(data);
-                    applyFilters();
-
-                    // Aplicar categoría de URL si existe
-                    aplicarCategoriaDesdeURL();
-                } catch (err) {
-                    console.error(err);
-                    el.grid.innerHTML = `
-            <div class="col-12">
-            <div class="alert alert-danger">
-            No se pudo cargar el catálogo. Revisa la ruta del JSON (<code>${DATA_URL}</code>) o el formato.
-            </div>
-            </div>`;
-                } finally {
-                    el.status.style.display = 'none';
-                }
-            }
-
-
-    /* === BLOQUE: EVENTOS === */
-    el.q.addEventListener('input', () => { state.q = el.q.value; applyFilters(); });
-    el.cat.addEventListener('change', () => { state.cat = el.cat.value; applyFilters(); });
-    el.sort.addEventListener('change', () => { state.sort = el.sort.value; applyFilters(); });
-
-    /* === BLOQUE: INICIO === */
-    document.addEventListener('DOMContentLoaded', loadProducts);
-</script>
 </body>
 </html>
