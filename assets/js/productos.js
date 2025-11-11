@@ -138,3 +138,150 @@ function mostrarError() {
     $("#productName").text("Producto no encontrado");
     $("#productDescription").text("El producto que buscas no está disponible.");
 }
+
+/* ============================================================
+   ✅ CATALOGO.JS — CONVERTIDO A JQUERY
+   ============================================================ */
+
+const stateCatalogo = {
+    all: [],
+    filtered: [],
+    q: '',
+    cat: '',
+    sort: 'relevance'
+};
+
+// Formatear moneda
+function fmtCurrency(n, locale = 'es-EC', currency = 'USD') {
+    return new Intl.NumberFormat(locale, { style: 'currency', currency }).format(n);
+}
+
+// Renderizar categorías
+function renderCategoriesCatalogo(items) {
+    const cats = [...new Set(items.map(p => p.categoria).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b));
+
+    $("#cat").html(
+        '<option value="">Todas</option>' +
+        cats.map(c => `<option value="${c}">${c}</option>`).join('')
+    );
+}
+
+// Renderizar tarjetas
+function renderGridCatalogo(items) {
+    if (!items.length) {
+        $("#grid").html(`
+            <div class="col-12">
+                <div class="alert alert-warning">No se encontraron productos.</div>
+            </div>
+        `);
+        return;
+    }
+
+    const cards = items.map(p => {
+        const img = p.imagen || "https://via.placeholder.com/600x600?text=Sin+imagen";
+        const badge = p.stock === 0 ? `<span class="badge text-bg-secondary">Agotado</span>` : '';
+        const price = fmtCurrency(p.precio ?? 0);
+        const url = `productos.html?id=${encodeURIComponent(p.id)}`;
+
+        return `
+            <div class="col">
+                <div class="card h-100">
+                    <a href="${url}" class="text-decoration-none text-reset">
+                        <img src="${img}" class="card-img-top" loading="lazy">
+                    </a>
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="card-title mb-1">
+                                <a href="${url}" class="stretched-link text-reset">${p.nombre}</a>
+                            </h6>
+                            ${badge}
+                        </div>
+                        <p class="text-muted small mb-2">${p.marca || ''} · ${p.categoria || ''}</p>
+                        <p class="fw-bold mb-3">${price}</p>
+                    </div>
+                </div>
+            </div>`;
+    }).join('');
+
+    $("#grid").html(cards);
+}
+
+// Filtros
+function applyFiltersCatalogo() {
+    const q = stateCatalogo.q.trim().toLowerCase();
+    const cat = stateCatalogo.cat;
+
+    let items = stateCatalogo.all.filter(p => {
+        const matchesText = !q || [
+            p.nombre, p.descripcion, p.marca, p.categoria
+        ].filter(Boolean).some(v => String(v).toLowerCase().includes(q));
+
+        const matchesCat = !cat || p.categoria === cat;
+        return matchesText && matchesCat;
+    });
+
+    switch (stateCatalogo.sort) {
+        case 'price-asc': items.sort((a, b) => (a.precio ?? 0) - (b.precio ?? 0)); break;
+        case 'price-desc': items.sort((a, b) => (b.precio ?? 0) - (a.precio ?? 0)); break;
+        case 'name-asc': items.sort((a, b) => (a.nombre || "").localeCompare(b.nombre || "")); break;
+        case 'name-desc': items.sort((a, b) => (b.nombre || "").localeCompare(a.nombre || "")); break;
+    }
+
+    stateCatalogo.filtered = items;
+    renderGridCatalogo(items);
+}
+
+// Aplicar categoría desde URL
+function aplicarCategoriaDesdeURLCatalogo() {
+    const categoria = new URLSearchParams(window.location.search).get("categoria");
+
+    if (categoria) {
+        setTimeout(() => {
+            $("#cat").val(categoria);
+            stateCatalogo.cat = categoria;
+            applyFiltersCatalogo();
+            $("#catalogo")[0].scrollIntoView({ behavior: "smooth" });
+        }, 150);
+    }
+}
+
+// Cargar productos
+function loadProductsCatalogo() {
+    // Usamos el arreglo productosData (ya cargado en productos.js)
+    const data = productosData;
+
+    stateCatalogo.all = data;
+
+    $("#statusMsg").show();
+    renderCategoriesCatalogo(data);
+    applyFiltersCatalogo();
+    aplicarCategoriaDesdeURLCatalogo();
+    $("#statusMsg").hide();
+}
+
+/* ================================
+   ✅ EVENTOS DEL CATÁLOGO
+================================ */
+$(document).ready(function () {
+
+    // Solo correr catálogo si existe #catalogo en la página
+    if ($("#catalogo").length) {
+        loadProductsCatalogo();
+
+        $("#q").on("input", function () {
+            stateCatalogo.q = $(this).val();
+            applyFiltersCatalogo();
+        });
+
+        $("#cat").on("change", function () {
+            stateCatalogo.cat = $(this).val();
+            applyFiltersCatalogo();
+        });
+
+        $("#sort").on("change", function () {
+            stateCatalogo.sort = $(this).val();
+            applyFiltersCatalogo();
+        });
+    }
+});
