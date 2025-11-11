@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Estilos -->
     <link href="assets/css/styles.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
 
@@ -207,154 +209,7 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- JavaScript para cargar productos desde JSON -->
-<script>
-    let productosData = [];
-    let productoActual = '';
-    productoActual.descripcion = undefined;
-    productoActual.categoria = undefined;
-
-    // Cargar productos desde JSON
-    async function cargarProductos() {
-        try {
-            const response = await fetch('productos.json');
-            productosData = await response.json();
-
-            // Obtener el ID del producto desde la URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const productId = parseInt(urlParams.get('id')) || 1;
-
-            // Cargar el producto específico
-            cargarProducto(productId);
-        } catch (error) {
-            console.error('Error al cargar productos:', error);
-            mostrarError();
-        }
-    }
-
-    // Cargar un producto específico
-    function cargarProducto(id) {
-        productoActual = productosData.find(p => p.id === id);
-
-        if (!productoActual) {
-            mostrarError();
-            return;
-        }
-
-        // Actualizar información del producto
-        document.getElementById('productName').textContent = productoActual.nombre;
-        document.getElementById('productCategory').textContent = productoActual.categoria;
-        document.getElementById('productPrice').textContent = `$${productoActual.precio.toFixed(2)}`;
-        document.getElementById('productPriceSidebar').textContent = `$${productoActual.precio.toFixed(2)}`;
-
-        // Calcular precio anterior (15% más)
-        const precioAnterior = productoActual.precio / 0.85;
-        document.getElementById('productPriceOld').textContent = `Precio anterior: $${precioAnterior.toFixed(2)}`;
-
-        document.getElementById('productDescription').textContent = productoActual.descripcion;
-
-        // Actualizar breadcrumb con enlace a categoría
-        const categoriaEncoded = encodeURIComponent(productoActual.categoria);
-        const breadcrumbLink = document.getElementById('breadcrumb-categoria-link');
-        breadcrumbLink.textContent = productoActual.categoria;
-        breadcrumbLink.href = `catalogo.html?categoria=${categoriaEncoded}`;
-
-        document.getElementById('breadcrumb-producto').textContent = productoActual.nombre;
-
-        // Cargar imagen principal
-        document.getElementById('mainImage').src = productoActual.imagen;
-        document.getElementById('mainImage').alt = productoActual.nombre;
-
-        // Generar thumbnails
-        generarThumbnails();
-
-        // Cargar productos relacionados
-        cargarProductosRelacionados();
-    }
-
-    // Generar thumbnails
-    function generarThumbnails() {
-        const container = document.getElementById('thumbnailsContainer');
-        container.innerHTML = '';
-
-        for (let i = 0; i < 4; i++) {
-            const img = document.createElement('img');
-            img.src = productoActual.imagen;
-            img.alt = `Vista ${i + 1}`;
-            img.className = 'product-thumbnail' + (i === 0 ? ' active' : '');
-            img.onclick = function() {
-                changeImage(this, productoActual.imagen);
-            };
-            container.appendChild(img);
-        }
-    }
-
-    // Cargar productos relacionados (misma categoría)
-    function cargarProductosRelacionados() {
-        const container = document.getElementById('relatedProductsContainer');
-        container.innerHTML = '';
-
-        const relacionados = productosData
-            .filter(p => p.categoria === productoActual.categoria && p.id !== productoActual.id)
-            .slice(0, 4);
-
-        // Si no hay suficientes de la misma categoría, agregar otros
-        if (relacionados.length < 4) {
-            const otros = productosData
-                .filter(p => p.id !== productoActual.id && !relacionados.includes(p))
-                .slice(0, 4 - relacionados.length);
-            relacionados.push(...otros);
-        }
-
-        relacionados.forEach(producto => {
-            const col = document.createElement('div');
-            col.className = 'col';
-            col.innerHTML = `
-                <div class="card h-100 related-product">
-                    <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-                    <div class="card-body">
-                        <h6 class="card-title small">${producto.nombre}</h6>
-                        <p class="fw-bold mb-2 product-price">$${producto.precio.toFixed(2)}</p>
-                        <a href="productos.html?id=${producto.id}" class="btn btn-sm btn-outline-secondary w-100">Ver detalles</a>
-                    </div>
-                </div>
-            `;
-            container.appendChild(col);
-        });
-    }
-
-    // Cambiar imagen principal
-    function changeImage(thumbnail, newSrc) {
-        document.getElementById('mainImage').src = newSrc;
-
-        document.querySelectorAll('.product-thumbnail').forEach(thumb => {
-            thumb.classList.remove('active');
-        });
-
-        thumbnail.classList.add('active');
-    }
-
-    // Agregar al carrito
-    function agregarAlCarrito() {
-        const cantidad = document.getElementById('quantity').value;
-        alert(`¡Producto agregado al carrito!\n\n${productoActual.nombre}\nCantidad: ${cantidad}\nPrecio: $${productoActual.precio.toFixed(2)}`);
-    }
-
-    // Comprar ahora
-    function comprarAhora() {
-        const cantidad = document.getElementById('quantity').value;
-        const total = productoActual.precio * cantidad;
-        alert(`Compra rápida:\n\n${productoActual.nombre}\nCantidad: ${cantidad}\nTotal: $${total.toFixed(2)}\n\n¡Redirigiendo al pago!`);
-    }
-
-    // Mostrar error
-    function mostrarError() {
-        document.getElementById('productName').textContent = 'Producto no encontrado';
-        document.getElementById('productDescription').textContent = 'El producto que buscas no está disponible.';
-    }
-
-    // Cargar productos al iniciar la página
-    window.addEventListener('DOMContentLoaded', cargarProductos);
-</script>
+<!-- Archivo externo con el código jQuery -->
+<script src="assets/js/productos.js"></script>
 </body>
 </html>
