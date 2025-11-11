@@ -92,7 +92,7 @@
                     <h1 class="display-5 fw-bold mb-2">Crea tu cuenta</h1>
                     <p class="text-muted mb-4">
                         ¿Ya tienes una cuenta?
-                        <a href="log.html" class="login-link">Log in</a>
+                        <a href="log.html" class="register-link-accent">Log in</a>
                     </p>
 
                     <!-- Formulario -->
@@ -104,6 +104,7 @@
                                 <input
                                         type="text"
                                         class="form-control register-input"
+                                        id="nombre"
                                         placeholder="Nombre"
                                 >
                             </div>
@@ -111,6 +112,7 @@
                                 <input
                                         type="text"
                                         class="form-control register-input"
+                                        id="apellido"
                                         placeholder="Apellido"
                                 >
                             </div>
@@ -121,6 +123,7 @@
                             <input
                                     type="email"
                                     class="form-control register-input"
+                                    id="emailSignup"
                                     placeholder="Email"
                             >
                         </div>
@@ -134,16 +137,23 @@
                                         id="regPassword"
                                         placeholder="Ingrese su contraseña"
                                 >
-                                <button type="button" class="btn-toggle-password-reg" onclick="toggleRegPassword()">
-                                    <i class="bi bi-eye" id="eyeIconReg"></i>
-                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="position-relative">
+                                <input
+                                        type="password"
+                                        class="form-control register-input"
+                                        id="regPassword2"
+                                        placeholder="Confirme su contraseña"
+                                >
                             </div>
                         </div>
 
                         <!-- Checkbox Términos -->
                         <div class="form-check mb-4">
                             <input class="form-check-input register-checkbox" type="checkbox" id="terms">
-                            <label class="form-check-label text-white-50 small" for="terms">
+                            <label class="form-check-label register-check-label" for="terms">
                                 Acepto <a href="" class="register-link">Terminos & Condiciones</a>
                             </label>
                         </div>
@@ -158,6 +168,27 @@
         </div>
     </div>
 </div>
+
+<!-- jquery -->
+<!-- Pantalla de recarga -->
+<div class="loading-signup" style="display:none;">
+    <h2>Creando tu cuenta...</h2>
+</div>
+
+<!-- Pantalla de registro exitoso -->
+<div class="success-signup" style="display:none;">
+    <h2>¡Cuenta creada exitosamente!</h2>
+    <a href="log.html" class="btn btn-primary mt-3">Iniciar sesión</a>
+</div>
+
+<!-- Pantalla de error -->
+<div class="error-signup" style="display:none;">
+    <h2>Ocurrió un error</h2>
+    <button class="btn btn-primary mt-3" id="volverSignup">Intentar de nuevo</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="assets/js/form.js"></script>
 
 <!-- FOOTER -->
 <footer class="bg-dark text-white py-4 mt-auto">
