@@ -82,7 +82,6 @@ $(function () {
             return;
         }
 
-        // Si todo está bien, continuar con el login
         $form.hide("slow");
         $error.hide("slow");
         $success.hide("slow");
@@ -249,7 +248,6 @@ $(function () {
             return;
         }
 
-        // Si todo está bien, continuar con el registro
         $formSignup.hide("slow");
         $errorSignup.hide("slow");
         $successSignup.hide("slow");
