@@ -181,7 +181,7 @@
         </div>
 
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3" id="mas-vendidos">
-            <!-- Los productos se cargan con JavaScript al final -->
+            <!-- Los productos se cargan dinámicamente con jQuery desde productosData -->
         </div>
 
         <div class="text-center mt-4">
@@ -322,73 +322,10 @@
 <!-- Bootstrap JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Script para cargar productos más vendidos -->
-<script>
-    // Lista de productos - FRUTAS con imágenes del mismo tamaño
-    const productos = [
-        {
-            nombre: 'Manzanas Rojas',
-            precio: '$3.99',
-            imagen: 'https://plus.unsplash.com/premium_photo-1674262320834-02e1779bd1bb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFuemFuYXMlMjByb2phc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000',
-            alt: 'Manzanas rojas frescas'
-        },
-        {
-            nombre: 'Plátanos Frescos',
-            precio: '$2.49',
-            imagen: 'https://images.unsplash.com/photo-1603833665858-e61d17a86224?q=80&w=400&h=300&auto=format&fit=crop',
-            alt: 'Plátanos ecuatorianos frescos'
-        },
-        {
-            nombre: 'Fresas Premium',
-            precio: '$5.99',
-            imagen: 'https://images.unsplash.com/photo-1543528176-61b239494933?q=80&w=400&h=300&auto=format&fit=crop',
-            alt: 'Fresas premium frescas'
-        },
-        {
-            nombre: 'Naranjas Jugosas',
-            precio: '$4.49',
-            imagen: 'https://images.unsplash.com/photo-1582979512210-99b6a53386f9?q=80&w=400&h=300&auto=format&fit=crop',
-            alt: 'Naranjas jugosas y frescas'
-        },
-        {
-            nombre: 'Uvas Verdes',
-            precio: '$6.99',
-            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpR-ieJECRn0T-0QHUTGRrYum-GEdTKHZsQ&s',
-            alt: 'Uvas verdes frescas sin semilla'
-        },
-        {
-            nombre: 'Sandía Dulce',
-            precio: '$7.99',
-            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSojae9-0GvHs0Xi6HgMWlz0VR8f0gaCBRGBi8GrEaTw8mkDstX9uIFn_0A2HvOfdB97Qc&usqp=CAU',
-            alt: 'Sandía dulce y fresca'
-        }
-    ];
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-    // Obtener el contenedor donde van los productos
-    const contenedor = document.getElementById('mas-vendidos');
-
-    // Crear una tarjeta por cada producto con imágenes del mismo tamaño
-    productos.forEach(function(producto) {
-        const html = `
-            <div class="col">
-                <div class="card h-100">
-                    <div style="height: 200px; overflow: hidden;">
-                        <img src="${producto.imagen}"
-                             class="card-img-top"
-                             alt="${producto.alt}"
-                             style="width: 100%; height: 100%; object-fit: cover;"
-                             loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <h6 class="fw-semibold mb-1">${producto.nombre}</h6>
-                        <p class="mb-0 product-price fw-bold">${producto.precio}</p>
-                    </div>
-                </div>
-            </div>
-        `;
-        contenedor.innerHTML += html;
-    });
-</script>
-
+<!-- Cargar productos.js que contiene productosData y todas las funciones -->
+<script src="assets/js/productos.js"></script>
 </body>
 </html>
