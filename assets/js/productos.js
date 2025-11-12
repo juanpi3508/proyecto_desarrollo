@@ -24,7 +24,7 @@ const productosData = [
 // Variables globales
 let productoActual = {};
 
-// ✅ Iniciar cuando cargue el DOM
+// Iniciar cuando cargue el DOM
 $(document).ready(function () {
     cargarProductoDesdeURL();
 });
@@ -166,7 +166,7 @@ function comprarAhora() {
 }
 
 
-// ✅ Mostrar error
+// Mostrar error
 function mostrarError() {
     $("#productName").text("Producto no encontrado");
     $("#productDescription").text("El producto que buscas no está disponible.");

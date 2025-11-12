@@ -1,4 +1,3 @@
-// assets/js/carrito.js
 (function ($, w) {
     const KEY = 'koko_cart_v1';
 
