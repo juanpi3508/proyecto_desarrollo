@@ -1,4 +1,4 @@
-// ✅ Arreglo de productos incluido directamente
+// Arreglo de productos incluido directamente
 const productosData = [
     { "id": 1, "nombre": "Manzanas Rojas", "precio": 2.5, "imagen": "/assets/img/frutas_manzanas.jpg", "descripcion": "Manzanas rojas frescas por kilo.", "categoria": "Frutas y Verduras", "marca": "AgroAndes", "stock": 35 ,"vendidos": 150},
     { "id": 2, "nombre": "Plátanos", "precio": 1.8, "imagen": "/assets/img/frutas_platanos.jpg", "descripcion": "Plátanos maduros por kilo.", "categoria": "Frutas y Verduras", "marca": "AgroAndes", "stock": 50 ,"vendidos": 320},
@@ -21,7 +21,7 @@ const productosData = [
     { "id": 15, "nombre": "Detergente en Polvo 1kg", "precio": 3.8, "imagen": "/assets/img/limpieza_detergente.jpg", "descripcion": "Detergente en polvo para ropa blanca y de color.", "categoria": "Higiene y Limpieza", "marca": "LimpioMax", "stock": 20 ,"vendidos": 145 }
 ];
 
-// ✅ Variables globales
+// Variables globales
 let productoActual = {};
 
 // ✅ Iniciar cuando cargue el DOM
@@ -29,14 +29,14 @@ $(document).ready(function () {
     cargarProductoDesdeURL();
 });
 
-// ✅ Leer ID desde URL y cargar producto
+// Leer ID desde URL y cargar producto
 function cargarProductoDesdeURL() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = parseInt(urlParams.get("id")) || 1;
     cargarProducto(productId);
 }
 
-// ✅ Cargar producto específico
+// Cargar producto específico
 function cargarProducto(id) {
     productoActual = productosData.find(p => p.id === id);
 
@@ -64,7 +64,7 @@ function cargarProducto(id) {
     cargarProductosRelacionados();
 }
 
-// ✅ Thumbnails usando jQuery
+// Thumbnails usando jQuery
 function generarThumbnails() {
     const cont = $("#thumbnailsContainer");
     cont.empty();
@@ -81,14 +81,14 @@ function generarThumbnails() {
     }
 }
 
-// ✅ Cambiar imagen principal
+// Cambiar imagen principal
 function changeImage(thumbnail, newSrc) {
     $("#mainImage").attr("src", newSrc);
     $(".product-thumbnail").removeClass("active");
     thumbnail.addClass("active");
 }
 
-// ✅ Productos relacionados
+// Productos relacionados
 function cargarProductosRelacionados() {
     const cont = $("#relatedProductsContainer");
     cont.empty();
@@ -120,18 +120,51 @@ function cargarProductosRelacionados() {
     });
 }
 
-// ✅ Agregar al carrito
+// Agregar al carrito
 function agregarAlCarrito() {
-    const cantidad = $("#quantity").val();
-    alert(`¡Producto agregado al carrito!\n\n${productoActual.nombre}\nCantidad: ${cantidad}\nPrecio: $${productoActual.precio.toFixed(2)}`);
+    const cantidad = parseInt($("#quantity").val(), 10) || 1;
+
+    // Validación rápida antes de llamar al carrito
+    if (Number.isFinite(productoActual.stock) && cantidad > productoActual.stock) {
+        alert(`Solo hay ${productoActual.stock} unidades disponibles.`);
+        $("#quantity").val(productoActual.stock);
+        return;
+    }
+
+    const res = Carrito.add({
+        id: productoActual.id,
+        nombre: productoActual.nombre,
+        precio: productoActual.precio,
+        imagen: productoActual.imagen,
+        stock: productoActual.stock // IMPORTANTE
+    }, cantidad);
+
+    Carrito.renderBadge();
+
+    if (!res.ok) {
+        alert("No hay stock disponible para este producto.");
+        return;
+    }
+    if (res.clamped) {
+        alert(`Se agregaron ${res.allowed} unidades (límite de stock: ${res.stock}).`);
+    } else {
+        alert(`Agregado: ${productoActual.nombre} x${res.allowed}`);
+    }
 }
 
-// ✅ Comprar ahora
+
+// Comprar ahora (versión con redirección al carrito)
 function comprarAhora() {
-    const cantidad = $("#quantity").val();
-    const total = productoActual.precio * cantidad;
-    alert(`Compra rápida:\n\n${productoActual.nombre}\nCantidad: ${cantidad}\nTotal: $${total.toFixed(2)}\n\n¡Redirigiendo al pago!`);
+    const cantidad = parseInt($("#quantity").val(), 10) || 1;
+
+    // Asegúrate de que productoActual tenga estas propiedades:
+    // { id, nombre, precio, imagen, stock }
+    Carrito.add(productoActual, cantidad);
+
+    // Redirigir al carrito
+    window.location.href = "carrito.html";
 }
+
 
 // ✅ Mostrar error
 function mostrarError() {
@@ -139,9 +172,6 @@ function mostrarError() {
     $("#productDescription").text("El producto que buscas no está disponible.");
 }
 
-/* ============================================================
-   ✅ CATALOGO.JS — CONVERTIDO A JQUERY
-   ============================================================ */
 
 const stateCatalogo = {
     all: [],
@@ -261,7 +291,7 @@ function loadProductsCatalogo() {
 }
 
 /* ================================
-   ✅ EVENTOS DEL CATÁLOGO
+   EVENTOS DEL CATÁLOGO
 ================================ */
 $(document).ready(function () {
 
@@ -287,7 +317,7 @@ $(document).ready(function () {
 });
 
 /* ============================================================
-   ✅ PRODUCTOS MÁS VENDIDOS PARA PORTADA.HTML
+   PRODUCTOS MÁS VENDIDOS PARA PORTADA.HTML
    ============================================================ */
 
 function cargarProductosMasVendidos() {
@@ -333,7 +363,7 @@ function cargarProductosMasVendidos() {
 
 
 /* ============================================================
-   ✅ INICIALIZACIÓN AUTOMÁTICA
+   INICIALIZACIÓN AUTOMÁTICA
    ============================================================ */
 
 $(document).ready(function () {
