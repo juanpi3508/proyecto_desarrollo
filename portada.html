@@ -12,149 +12,6 @@
 
     <!-- Archivo Style del usuario -->
     <link href="assets/css/styles.css" rel="stylesheet">
-
-    <style>
-        /* ============================================
-           ESTILOS ADICIONALES PARA COHERENCIA CULTURAL
-           Respetando completamente el CSS original del usuario
-           ============================================ */
-
-        /* Mejora de accesibilidad en imágenes */
-        .img-wrapper {
-            position: relative;
-            overflow: hidden;
-            border-radius: 1rem;
-            box-shadow: var(--shadow);
-        }
-
-        /* Badge cultural ecuatoriano */
-        .badge-cultural {
-            background: linear-gradient(135deg, var(--brand) 0%, var(--brand-accent) 100%);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            display: inline-block;
-            margin: 4px;
-            font-family: 'Crimson Text', serif;
-            box-shadow: 0 2px 8px rgba(255, 173, 51, 0.3);
-        }
-
-        /* Ícono en navbar brand */
-        .navbar-brand::before {
-            content: "🏪";
-            font-size: 1.5rem;
-            margin-right: 8px;
-        }
-
-        /* Línea decorativa cultural */
-        .decorative-line {
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, var(--brand), var(--brand-accent));
-            margin: 16px auto;
-            border-radius: 2px;
-        }
-
-        /* Estadísticas con iconos */
-        .stat-icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        /* Íconos de características */
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        /* Animaciones suaves */
-        .fade-in {
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Hover en links de productos */
-        .product-link {
-            transition: transform 0.3s ease;
-            display: inline-block;
-        }
-
-        .product-link:hover {
-            transform: translateX(5px);
-        }
-
-        /* Mejora de contraste en header para legibilidad */
-        header h1,
-        header .display-5 {
-            color: white !important;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-        }
-
-        header p,
-        header .lead {
-            color: white !important;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Sección "Sobre Nosotros" con fondo sutil */
-        .about-section {
-            background: linear-gradient(to bottom, #FFFFFF 0%, var(--light-bg) 100%);
-        }
-
-        /* Stats section con mejor espaciado */
-        .stats-wrapper {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            flex: 1;
-            min-width: 120px;
-        }
-
-        .stat-item h4 {
-            color: var(--brand);
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-item p {
-            color: var(--ink);
-            opacity: 0.8;
-        }
-
-        /* Texto en footer */
-        footer p {
-            margin-bottom: 0.5rem;
-            opacity: 0.95;
-        }
-
-        /* Responsive para badges */
-        @media (max-width: 768px) {
-            .badge-cultural {
-                font-size: 0.85rem;
-                padding: 6px 12px;
-            }
-
-            .decorative-line {
-                width: 50px;
-                height: 3px;
-            }
-        }
-    </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -163,7 +20,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
     <div class="container">
         <!-- Nombre de la tienda con identidad cultural (ícono en CSS) -->
-        <a class="navbar-brand fw-bold" href="portada.html">KoKo Market</a>
+        <!-- Logo + nombre + enlace Sora -->
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="portada.html" style="text-decoration: none;">
+            <!-- Imagen real del logo -->
+            <img src="4fc6ba80-d26a-40f9-a84f-9d03df363b6b.png" alt="Logo KoKo Market" width="45" height="45" class="me-2">
+            <span class="text-white" style="font-size: 1.8rem; font-family: 'Times New Roman', serif;">KoKo Market</span>
+        </a>
+
 
         <!-- Botón hamburguesa para móviles -->
         <button class="navbar-toggler" type="button"
@@ -318,7 +181,7 @@
         </div>
 
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3" id="mas-vendidos">
-            <!-- Los productos se cargan con JavaScript al final -->
+            <!-- Los productos se cargan dinámicamente con jQuery desde productosData -->
         </div>
 
         <div class="text-center mt-4">
@@ -335,7 +198,7 @@
             <!-- Imagen -->
             <div class="col-lg-5">
                 <div class="img-wrapper" style="height: 450px; overflow: hidden;">
-                    <img src="https://videos.openai.com/az/vg-assets/assets%2Ftask_01jzhp4ch1fcab6xztzw5wy43d%2F1751866691_img_0.webp?se=2025-11-05T12%3A00%3A34Z&sp=r&sv=2024-08-04&sr=b&skoid=1af02b11-169c-463d-b441-d2ccfc9f02c8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-10-30T06%3A29%3A05Z&ske=2025-11-06T06%3A34%3A05Z&sks=b&skv=2024-08-04&sig=tT14rfLdMEyoMozibOv3l739ejWHYN5yyDjlkcAFuig%3D&ac=oaivgprodscus"
+                    <img src="https://media.istockphoto.com/id/1223013236/es/foto/vendedor-de-frutas-en-el-mercado-de-otavalo-ecuador.jpg?s=612x612&w=0&k=20&c=bP72WZXp12pOvZUXFF2dGzhZ8VFOGuZP9pJU8VlvNaM="
                          alt="Mercado tradicional de Quito - Historia de KoKo Market"
                          style="width: 100%; height: 100%; object-fit: cover;"
                          loading="lazy">
@@ -459,73 +322,10 @@
 <!-- Bootstrap JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Script para cargar productos más vendidos -->
-<script>
-    // Lista de productos - FRUTAS con imágenes del mismo tamaño
-    const productos = [
-        {
-            nombre: 'Manzanas Rojas',
-            precio: '$3.99',
-            imagen: 'https://plus.unsplash.com/premium_photo-1674262320834-02e1779bd1bb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFuemFuYXMlMjByb2phc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000',
-            alt: 'Manzanas rojas frescas'
-        },
-        {
-            nombre: 'Plátanos Frescos',
-            precio: '$2.49',
-            imagen: 'https://images.unsplash.com/photo-1603833665858-e61d17a86224?q=80&w=400&h=300&auto=format&fit=crop',
-            alt: 'Plátanos ecuatorianos frescos'
-        },
-        {
-            nombre: 'Fresas Premium',
-            precio: '$5.99',
-            imagen: 'https://images.unsplash.com/photo-1543528176-61b239494933?q=80&w=400&h=300&auto=format&fit=crop',
-            alt: 'Fresas premium frescas'
-        },
-        {
-            nombre: 'Naranjas Jugosas',
-            precio: '$4.49',
-            imagen: 'https://images.unsplash.com/photo-1582979512210-99b6a53386f9?q=80&w=400&h=300&auto=format&fit=crop',
-            alt: 'Naranjas jugosas y frescas'
-        },
-        {
-            nombre: 'Uvas Verdes',
-            precio: '$6.99',
-            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpR-ieJECRn0T-0QHUTGRrYum-GEdTKHZsQ&s',
-            alt: 'Uvas verdes frescas sin semilla'
-        },
-        {
-            nombre: 'Sandía Dulce',
-            precio: '$7.99',
-            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSojae9-0GvHs0Xi6HgMWlz0VR8f0gaCBRGBi8GrEaTw8mkDstX9uIFn_0A2HvOfdB97Qc&usqp=CAU',
-            alt: 'Sandía dulce y fresca'
-        }
-    ];
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-    // Obtener el contenedor donde van los productos
-    const contenedor = document.getElementById('mas-vendidos');
-
-    // Crear una tarjeta por cada producto con imágenes del mismo tamaño
-    productos.forEach(function(producto) {
-        const html = `
-            <div class="col">
-                <div class="card h-100">
-                    <div style="height: 200px; overflow: hidden;">
-                        <img src="${producto.imagen}"
-                             class="card-img-top"
-                             alt="${producto.alt}"
-                             style="width: 100%; height: 100%; object-fit: cover;"
-                             loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <h6 class="fw-semibold mb-1">${producto.nombre}</h6>
-                        <p class="mb-0 product-price fw-bold">${producto.precio}</p>
-                    </div>
-                </div>
-            </div>
-        `;
-        contenedor.innerHTML += html;
-    });
-</script>
-
+<!-- Cargar productos.js que contiene productosData y todas las funciones -->
+<script src="assets/js/productos.js"></script>
 </body>
 </html>
