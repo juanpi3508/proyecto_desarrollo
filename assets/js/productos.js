@@ -122,9 +122,20 @@ function cargarProductosRelacionados() {
 
 // ✅ Agregar al carrito
 function agregarAlCarrito() {
-    const cantidad = $("#quantity").val();
-    alert(`¡Producto agregado al carrito!\n\n${productoActual.nombre}\nCantidad: ${cantidad}\nPrecio: $${productoActual.precio.toFixed(2)}`);
+    const cantidad = parseInt($("#quantity").val(), 10) || 1;
+
+    Carrito.add({
+        id: productoActual.id,
+        nombre: productoActual.nombre,
+        precio: productoActual.precio,
+        imagen: productoActual.imagen
+    }, cantidad);
+
+    Carrito.renderBadge(); // actualiza el numerito en el navbar
+
+    alert(`✅ Se agregó ${productoActual.nombre} (x${cantidad}) al carrito`);
 }
+
 
 // ✅ Comprar ahora
 function comprarAhora() {
