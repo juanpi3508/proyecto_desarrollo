@@ -132,10 +132,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-<!-- Motor del carrito -->
+<!-- Motor del carrito (con soporte de stock) -->
 <script src="assets/js/carrito.js"></script>
 
-<!-- Lógica de renderizado del carrito -->
+<!-- Lógica de renderizado del carrito con validación de stock -->
 <script>
     function renderCarrito() {
         const $wrap = $("#cart-items").empty();
@@ -149,6 +149,11 @@
       `);
         } else {
             items.forEach(it => {
+                const maxAttr = Number.isFinite(it.stock) ? `max="${it.stock}"` : '';
+                const stockLabel = Number.isFinite(it.stock)
+                    ? `<small class="text-muted">Stock: ${it.stock}</small>`
+                    : '';
+
                 const card = $(`
           <div class="card mb-3" data-id="${it.id}">
             <div class="card-body">
@@ -162,7 +167,8 @@
                        style="width:60px;height:60px;object-fit:cover;">
                   <div>
                     <h6 class="mb-0">${it.nombre}</h6>
-                    <small class="text-muted">Precio: ${Carrito.fmt(it.precio)}</small>
+                    <small class="text-muted">Precio: ${Carrito.fmt(it.precio)}</small><br>
+                    ${stockLabel}
                   </div>
                 </div>
 
@@ -174,9 +180,10 @@
                   <div class="d-flex justify-content-center align-items-center">
                     <button class="btn btn-sm btn-outline-secondary btn-dec">−</button>
                     <input type="number" class="form-control form-control-sm text-center mx-2 input-qty"
-                           value="${it.qty}" min="1" max="99" style="width:60px;">
+                           value="${it.qty}" min="1" ${maxAttr} style="width:60px;">
                     <button class="btn btn-sm btn-outline-secondary btn-inc">+</button>
                   </div>
+                  <div class="form-text text-danger d-none msg-stock">No puedes exceder el stock.</div>
                 </div>
 
                 <div class="col-2 text-center">
@@ -201,30 +208,48 @@
         Carrito.renderBadge();
     }
 
-    // Delegación de eventos
+    // + (incrementar) con tope de stock
     $(document).on("click", ".btn-inc", function(){
         const $card = $(this).closest(".card");
-        const id = $card.data("id");
-        const $qty = $card.find(".input-qty");
-        $qty.val(Math.min(99, (parseInt($qty.val(),10)||1) + 1)).trigger("change");
+        const $qty  = $card.find(".input-qty");
+        const max   = parseInt($qty.attr("max"), 10);
+        let val     = parseInt($qty.val(), 10) || 1;
+
+        if (Number.isFinite(max) && val >= max) {
+            $card.find(".msg-stock").removeClass("d-none");
+            setTimeout(() => $card.find(".msg-stock").addClass("d-none"), 2000);
+            return; // no exceder stock
+        }
+        $qty.val(val + 1).trigger("change");
     });
 
+    // − (decrementar)
     $(document).on("click", ".btn-dec", function(){
         const $card = $(this).closest(".card");
-        const id = $card.data("id");
-        const $qty = $card.find(".input-qty");
-        $qty.val(Math.max(1, (parseInt($qty.val(),10)||1) - 1)).trigger("change");
+        const $qty  = $card.find(".input-qty");
+        let val     = parseInt($qty.val(), 10) || 1;
+        $qty.val(Math.max(1, val - 1)).trigger("change");
     });
 
+    // Cambio manual con clamp a stock
     $(document).on("change", ".input-qty", function(){
         const $card = $(this).closest(".card");
-        const id = $card.data("id");
-        const qty = Math.min(99, Math.max(1, parseInt($(this).val(),10) || 1));
-        Carrito.update(id, qty);
-        // actualizar subtotal de esa fila sin re-render completo
-        const item = Carrito.items().find(i => i.id === id);
+        const id    = $card.data("id");
+        let qty     = Math.max(1, parseInt($(this).val(),10) || 1);
+        const max   = parseInt($(this).attr("max"), 10);
+
+        if (Number.isFinite(max) && qty > max) {
+            qty = max;
+            $(this).val(max);
+            $card.find(".msg-stock").removeClass("d-none");
+            setTimeout(() => $card.find(".msg-stock").addClass("d-none"), 2000);
+        }
+
+        const res  = Carrito.update(id, qty);
+        const item = Carrito.get ? Carrito.get(id) : Carrito.items().find(i => i.id === id);
+
+        // actualizar subtotal y resumen
         $card.find(".subtotal").text(Carrito.fmt(item.precio * item.qty));
-        // actualizar resumen
         $("#total-items").text(Carrito.countItems());
         $("#sub-total").text(Carrito.fmt(Carrito.subtotal()));
         $("#shipping").text(Carrito.fmt(Carrito.shipping()));
@@ -233,12 +258,14 @@
         Carrito.renderBadge();
     });
 
+    // Eliminar
     $(document).on("click", ".btn-remove", function(){
         const id = $(this).closest(".card").data("id");
         Carrito.remove(id);
         renderCarrito();
     });
 
+    // Vaciar
     $("#btn-vaciar").on("click", function(){
         if (confirm("¿Deseas vaciar el carrito completo?")) {
             Carrito.clear();
@@ -246,15 +273,16 @@
         }
     });
 
+    // Pagar (placeholder)
     $("#btn-pagar").on("click", function(){
         if (Carrito.countItems() === 0) {
             alert("Tu carrito está vacío.");
             return;
         }
-        // Aquí integrarías tu pasarela o flujo de checkout
         alert("Redirigir a la pasarela de pago (pendiente de integración).");
     });
 
+    // Inicio
     document.addEventListener("DOMContentLoaded", () => {
         Carrito.renderBadge();
         renderCarrito();
