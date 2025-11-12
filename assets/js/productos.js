@@ -122,9 +122,36 @@ function cargarProductosRelacionados() {
 
 // ✅ Agregar al carrito
 function agregarAlCarrito() {
-    const cantidad = $("#quantity").val();
-    alert(`¡Producto agregado al carrito!\n\n${productoActual.nombre}\nCantidad: ${cantidad}\nPrecio: $${productoActual.precio.toFixed(2)}`);
+    const cantidad = parseInt($("#quantity").val(), 10) || 1;
+
+    // Validación rápida antes de llamar al carrito
+    if (Number.isFinite(productoActual.stock) && cantidad > productoActual.stock) {
+        alert(`Solo hay ${productoActual.stock} unidades disponibles.`);
+        $("#quantity").val(productoActual.stock);
+        return;
+    }
+
+    const res = Carrito.add({
+        id: productoActual.id,
+        nombre: productoActual.nombre,
+        precio: productoActual.precio,
+        imagen: productoActual.imagen,
+        stock: productoActual.stock // IMPORTANTE
+    }, cantidad);
+
+    Carrito.renderBadge();
+
+    if (!res.ok) {
+        alert("No hay stock disponible para este producto.");
+        return;
+    }
+    if (res.clamped) {
+        alert(`Se agregaron ${res.allowed} unidades (límite de stock: ${res.stock}).`);
+    } else {
+        alert(`Agregado: ${productoActual.nombre} x${res.allowed}`);
+    }
 }
+
 
 // ✅ Comprar ahora
 function comprarAhora() {

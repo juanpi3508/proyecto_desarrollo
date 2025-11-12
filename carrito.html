@@ -9,56 +9,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Pagina de estilo -->
+    <!-- Estilos -->
     <link href="assets/css/styles.css" rel="stylesheet">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 
-<!-- Barra de navegación -->
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
     <div class="container">
-        <!-- Nombre de la tienda -->
         <a class="navbar-brand fw-bold" href="portada.html">KoKo Market</a>
 
-        <!-- Botón hamburguesa para móviles -->
-        <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarMain">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Menú de navegación -->
         <div class="collapse navbar-collapse" id="navbarMain">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                <!-- Inicio -->
-                <li class="nav-item">
-                    <a class="nav-link" href="portada.html">Inicio</a>
-                </li>
-
-                <!-- Catálogo -->
-                <li class="nav-item">
-                    <a class="nav-link" href="catalogo.html">Catálogo</a>
-                </li>
-
-                <!-- Carrito -->
+                <li class="nav-item"><a class="nav-link" href="portada.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
                 <li class="nav-item">
                     <a class="nav-link active" href="carrito.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart3 me-1" viewBox="0 0 16 16">
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-                        </svg>
-                        Carrito
+                        <i class="bi bi-cart3 me-1"></i> Carrito
+                        <span id="cart-count" class="badge bg-warning text-dark ms-1">0</span>
                     </a>
                 </li>
-
-                <!-- Login -->
                 <li class="nav-item">
                     <a class="nav-link" href="log.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle me-1" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                        </svg>
-                        Login
+                        <i class="bi bi-person-circle me-1"></i> Login
                     </a>
                 </li>
             </ul>
@@ -66,15 +44,15 @@
     </div>
 </nav>
 
-<!-- CONTENIDO PRINCIPAL -->
+<!-- CONTENIDO -->
 <main class="container my-5">
     <div class="row">
-        <!-- COLUMNA IZQUIERDA - PRODUCTOS DEL CARRITO -->
+        <!-- IZQUIERDA: Ítems -->
         <div class="col-lg-8 mb-4">
             <h2 class="mb-4">Carrito de Compras</h2>
 
-            <!-- Encabezado de la tabla -->
-            <div class="card mb-3" style="background-color: #f6e6a5;">
+            <!-- Encabezado “tabla” -->
+            <div class="card mb-3" style="background-color:#f6e6a5;">
                 <div class="card-body py-2">
                     <div class="row text-center fw-bold">
                         <div class="col-5">Producto</div>
@@ -84,187 +62,39 @@
                     </div>
                 </div>
             </div>
-            <!-- PRODUCTOS QUEMADOS -->
-            <!-- PRODUCTO 1: Manzanas Rojas -->
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <!-- Botón eliminar e imagen -->
-                        <div class="col-5 d-flex align-items-center">
-                            <button class="btn btn-link text-danger p-0 me-3" onclick="eliminarProducto(1)">
-                                <i class="bi bi-x-lg"></i>
-                            </button>
-                            <img src="assets/img/frutas_manzanas.jpg"
-                                 alt="Manzanas Rojas"
-                                 class="rounded me-3"
-                                 style="width: 60px; height: 60px; object-fit: cover;">
-                            <div>
-                                <h6 class="mb-0">Manzanas Rojas</h6>
-                                <small class="text-muted">Por kilo</small>
-                            </div>
-                        </div>
 
-                        <!-- Precio -->
-                        <div class="col-2 text-center">
-                            <span class="fw-semibold">$2.50</span>
-                        </div>
+            <!-- Lista dinámica de productos -->
+            <div id="cart-items"></div>
 
-                        <!-- Cantidad -->
-                        <div class="col-3">
-                            <div class="d-flex justify-content-center align-items-center">
-                                <button class="btn btn-sm btn-outline-secondary" onclick="decrementar(1)">−</button>
-                                <input type="number" class="form-control form-control-sm text-center mx-2"
-                                       id="cantidad-1" value="2" min="1" max="99" style="width: 60px;" readonly>
-                                <button class="btn btn-sm btn-outline-secondary" onclick="incrementar(1)">+</button>
-                            </div>
-                        </div>
-
-                        <!-- Subtotal -->
-                        <div class="col-2 text-center">
-                            <span class="fw-bold" id="subtotal-1">$5.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCTO 2: Plátanos -->
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-5 d-flex align-items-center">
-                            <button class="btn btn-link text-danger p-0 me-3" onclick="eliminarProducto(2)">
-                                <i class="bi bi-x-lg"></i>
-                            </button>
-                            <img src="assets/img/frutas_platanos.jpg"
-                                 alt="Plátanos"
-                                 class="rounded me-3"
-                                 style="width: 60px; height: 60px; object-fit: cover;">
-                            <div>
-                                <h6 class="mb-0">Plátanos</h6>
-                                <small class="text-muted">Por kilo</small>
-                            </div>
-                        </div>
-                        <div class="col-2 text-center">
-                            <span class="fw-semibold">$1.80</span>
-                        </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-center align-items-center">
-                                <button class="btn btn-sm btn-outline-secondary" onclick="decrementar(2)">−</button>
-                                <input type="number" class="form-control form-control-sm text-center mx-2"
-                                       id="cantidad-2" value="3" min="1" max="99" style="width: 60px;" readonly>
-                                <button class="btn btn-sm btn-outline-secondary" onclick="incrementar(2)">+</button>
-                            </div>
-                        </div>
-                        <div class="col-2 text-center">
-                            <span class="fw-bold" id="subtotal-2">$5.40</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCTO 3: Leche Entera 1L -->
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-5 d-flex align-items-center">
-                            <button class="btn btn-link text-danger p-0 me-3" onclick="eliminarProducto(3)">
-                                <i class="bi bi-x-lg"></i>
-                            </button>
-                            <img src="assets/img/lacteos_leche.jpg"
-                                 alt="Leche Entera 1L"
-                                 class="rounded me-3"
-                                 style="width: 60px; height: 60px; object-fit: cover;">
-                            <div>
-                                <h6 class="mb-0">Leche Entera 1L</h6>
-                                <small class="text-muted">Lácteos Andinos</small>
-                            </div>
-                        </div>
-                        <div class="col-2 text-center">
-                            <span class="fw-semibold">$1.20</span>
-                        </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-center align-items-center">
-                                <button class="btn btn-sm btn-outline-secondary" onclick="decrementar(3)">−</button>
-                                <input type="number" class="form-control form-control-sm text-center mx-2"
-                                       id="cantidad-3" value="5" min="1" max="99" style="width: 60px;" readonly>
-                                <button class="btn btn-sm btn-outline-secondary" onclick="incrementar(3)">+</button>
-                            </div>
-                        </div>
-                        <div class="col-2 text-center">
-                            <span class="fw-bold" id="subtotal-3">$6.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCTO 4: Pechuga de Pollo -->
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-5 d-flex align-items-center">
-                            <button class="btn btn-link text-danger p-0 me-3" onclick="eliminarProducto(4)">
-                                <i class="bi bi-x-lg"></i>
-                            </button>
-                            <img src="assets/img/carnes_pollo.jpg"
-                                 alt="Pechuga de Pollo"
-                                 class="rounded me-3"
-                                 style="width: 60px; height: 60px; object-fit: cover;">
-                            <div>
-                                <h6 class="mb-0">Pechuga de Pollo</h6>
-                                <small class="text-muted">Por kilo</small>
-                            </div>
-                        </div>
-                        <div class="col-2 text-center">
-                            <span class="fw-semibold">$5.99</span>
-                        </div>
-                        <div class="col-3">
-                            <div class="d-flex justify-content-center align-items-center">
-                                <button class="btn btn-sm btn-outline-secondary" onclick="decrementar(4)">−</button>
-                                <input type="number" class="form-control form-control-sm text-center mx-2"
-                                       id="cantidad-4" value="2" min="1" max="99" style="width: 60px;" readonly>
-                                <button class="btn btn-sm btn-outline-secondary" onclick="incrementar(4)">+</button>
-                            </div>
-                        </div>
-                        <div class="col-2 text-center">
-                            <span class="fw-bold" id="subtotal-4">$11.98</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Botón limpiar carrito -->
+            <!-- Vaciar carrito -->
             <div class="text-end mt-3">
-                <button class="btn btn-outline-danger" onclick="limpiarCarrito()">
+                <button class="btn btn-outline-danger" id="btn-vaciar">
                     <i class="bi bi-trash me-2"></i>Vaciar Carrito de Compras
                 </button>
             </div>
         </div>
 
-        <!-- COLUMNA DERECHA - RESUMEN DEL PEDIDO -->
+        <!-- DERECHA: Resumen -->
         <div class="col-lg-4">
             <div class="card sticky-top" style="top: 80px;">
                 <div class="card-body">
                     <h5 class="card-title mb-4">Resumen del Pedido</h5>
 
-                    <!-- Items -->
                     <div class="d-flex justify-content-between mb-3">
                         <span class="text-muted">Artículos</span>
-                        <span class="fw-semibold" id="total-items">12</span>
+                        <span class="fw-semibold" id="total-items">0</span>
                     </div>
 
-                    <!-- Sub Total -->
                     <div class="d-flex justify-content-between mb-3">
                         <span class="text-muted">Subtotal</span>
-                        <span class="fw-semibold" id="sub-total">$28.38</span>
+                        <span class="fw-semibold" id="sub-total">$0.00</span>
                     </div>
 
-                    <!-- Shipping -->
                     <div class="d-flex justify-content-between mb-3">
                         <span class="text-muted">Envío</span>
                         <span class="fw-semibold" id="shipping">$0.00</span>
                     </div>
 
-                    <!-- Taxes -->
                     <div class="d-flex justify-content-between mb-3">
                         <span class="text-muted">Impuestos</span>
                         <span class="fw-semibold" id="taxes">$0.00</span>
@@ -272,14 +102,12 @@
 
                     <hr>
 
-                    <!-- Total -->
                     <div class="d-flex justify-content-between mb-4">
                         <span class="fw-bold fs-5">Total</span>
-                        <span class="fw-bold fs-5" id="total">$28.38</span>
+                        <span class="fw-bold fs-5" id="total">$0.00</span>
                     </div>
 
-                    <!-- Botón Proceed to Checkout -->
-                    <button class="btn btn-success w-100 py-3 fw-semibold" onclick="procederAlPago()">
+                    <button class="btn btn-success w-100 py-3 fw-semibold" id="btn-pagar">
                         Proceder al Pago
                     </button>
                 </div>
@@ -300,89 +128,165 @@
     </div>
 </footer>
 
-<!-- Bootstrap JS -->
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-<!-- JavaScript para funcionalidad del carrito -->
+<!-- Motor del carrito (con soporte de stock) -->
+<script src="assets/js/carrito.js"></script>
+
+<!-- Lógica de renderizado del carrito con validación de stock -->
 <script>
-    // Datos de productos quemados del JSON
-    const productos = [
-        { id: 1, nombre: 'Manzanas Rojas', precio: 2.50, cantidad: 2 },
-        { id: 2, nombre: 'Plátanos', precio: 1.80, cantidad: 3 },
-        { id: 3, nombre: 'Leche Entera 1L', precio: 1.20, cantidad: 5 },
-        { id: 4, nombre: 'Pechuga de Pollo', precio: 5.99, cantidad: 2 }
-    ];
+    function renderCarrito() {
+        const $wrap = $("#cart-items").empty();
+        const items = Carrito.items();
 
-    // Función para incrementar cantidad
-    function incrementar(id) {
-        const input = document.getElementById(`cantidad-${id}`);
-        let valor = parseInt(input.value);
-        if (valor < 99) {
-            input.value = valor + 1;
-            actualizarSubtotal(id);
-            actualizarResumen();
+        if (items.length === 0) {
+            $wrap.html(`
+        <div class="alert alert-warning text-center">
+          🛒 Tu carrito está vacío. <a href="catalogo.html" class="alert-link">Ver productos</a>.
+        </div>
+      `);
+        } else {
+            items.forEach(it => {
+                const maxAttr = Number.isFinite(it.stock) ? `max="${it.stock}"` : '';
+                const stockLabel = Number.isFinite(it.stock)
+                    ? `<small class="text-muted">Stock: ${it.stock}</small>`
+                    : '';
+
+                const card = $(`
+          <div class="card mb-3" data-id="${it.id}">
+            <div class="card-body">
+              <div class="row align-items-center">
+
+                <div class="col-5 d-flex align-items-center">
+                  <button class="btn btn-link text-danger p-0 me-3 btn-remove" title="Eliminar">
+                    <i class="bi bi-x-lg"></i>
+                  </button>
+                  <img src="${it.imagen || ''}" alt="${it.nombre}" class="rounded me-3"
+                       style="width:60px;height:60px;object-fit:cover;">
+                  <div>
+                    <h6 class="mb-0">${it.nombre}</h6>
+                    <small class="text-muted">Precio: ${Carrito.fmt(it.precio)}</small><br>
+                    ${stockLabel}
+                  </div>
+                </div>
+
+                <div class="col-2 text-center">
+                  <span class="fw-semibold">${Carrito.fmt(it.precio)}</span>
+                </div>
+
+                <div class="col-3">
+                  <div class="d-flex justify-content-center align-items-center">
+                    <button class="btn btn-sm btn-outline-secondary btn-dec">−</button>
+                    <input type="number" class="form-control form-control-sm text-center mx-2 input-qty"
+                           value="${it.qty}" min="1" ${maxAttr} style="width:60px;">
+                    <button class="btn btn-sm btn-outline-secondary btn-inc">+</button>
+                  </div>
+                  <div class="form-text text-danger d-none msg-stock">No puedes exceder el stock.</div>
+                </div>
+
+                <div class="col-2 text-center">
+                  <span class="fw-bold subtotal">${Carrito.fmt(it.precio * it.qty)}</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        `);
+                $wrap.append(card);
+            });
         }
+
+        // Resumen
+        $("#total-items").text(Carrito.countItems());
+        $("#sub-total").text(Carrito.fmt(Carrito.subtotal()));
+        $("#shipping").text(Carrito.fmt(Carrito.shipping()));
+        $("#taxes").text(Carrito.fmt(Carrito.taxes()));
+        $("#total").text(Carrito.fmt(Carrito.total()));
+
+        Carrito.renderBadge();
     }
 
-    // Función para decrementar cantidad
-    function decrementar(id) {
-        const input = document.getElementById(`cantidad-${id}`);
-        let valor = parseInt(input.value);
-        if (valor > 1) {
-            input.value = valor - 1;
-            actualizarSubtotal(id);
-            actualizarResumen();
+    // + (incrementar) con tope de stock
+    $(document).on("click", ".btn-inc", function(){
+        const $card = $(this).closest(".card");
+        const $qty  = $card.find(".input-qty");
+        const max   = parseInt($qty.attr("max"), 10);
+        let val     = parseInt($qty.val(), 10) || 1;
+
+        if (Number.isFinite(max) && val >= max) {
+            $card.find(".msg-stock").removeClass("d-none");
+            setTimeout(() => $card.find(".msg-stock").addClass("d-none"), 2000);
+            return; // no exceder stock
         }
-    }
+        $qty.val(val + 1).trigger("change");
+    });
 
-    // Función para actualizar subtotal de un producto
-    function actualizarSubtotal(id) {
-        const producto = productos.find(p => p.id === id);
-        const cantidad = parseInt(document.getElementById(`cantidad-${id}`).value);
-        const subtotal = producto.precio * cantidad;
-        document.getElementById(`subtotal-${id}`).textContent = `$${subtotal.toFixed(2)}`;
-    }
+    // − (decrementar)
+    $(document).on("click", ".btn-dec", function(){
+        const $card = $(this).closest(".card");
+        const $qty  = $card.find(".input-qty");
+        let val     = parseInt($qty.val(), 10) || 1;
+        $qty.val(Math.max(1, val - 1)).trigger("change");
+    });
 
-    // Función para actualizar el resumen del pedido
-    function actualizarResumen() {
-        let totalItems = 0;
-        let subTotal = 0;
+    // Cambio manual con clamp a stock
+    $(document).on("change", ".input-qty", function(){
+        const $card = $(this).closest(".card");
+        const id    = $card.data("id");
+        let qty     = Math.max(1, parseInt($(this).val(),10) || 1);
+        const max   = parseInt($(this).attr("max"), 10);
 
-        productos.forEach(producto => {
-            const cantidad = parseInt(document.getElementById(`cantidad-${producto.id}`).value);
-            totalItems += cantidad;
-            subTotal += producto.precio * cantidad;
-        });
-
-        document.getElementById('total-items').textContent = totalItems;
-        document.getElementById('sub-total').textContent = `$${subTotal.toFixed(2)}`;
-        document.getElementById('total').textContent = `$${subTotal.toFixed(2)}`;
-    }
-
-    // Función para eliminar producto
-    function eliminarProducto(id) {
-        if (confirm('¿Estás seguro de que deseas eliminar este producto del carrito?')) {
-            alert(`Producto eliminado (funcionalidad visual - no implementada aún)`);
+        if (Number.isFinite(max) && qty > max) {
+            qty = max;
+            $(this).val(max);
+            $card.find(".msg-stock").removeClass("d-none");
+            setTimeout(() => $card.find(".msg-stock").addClass("d-none"), 2000);
         }
-    }
 
-    // Función para limpiar carrito
-    function limpiarCarrito() {
-        if (confirm('¿Estás seguro de que deseas vaciar todo el carrito?')) {
-            alert('Carrito vaciado (funcionalidad visual - no implementada aún)');
+        const res  = Carrito.update(id, qty);
+        const item = Carrito.get ? Carrito.get(id) : Carrito.items().find(i => i.id === id);
+
+        // actualizar subtotal y resumen
+        $card.find(".subtotal").text(Carrito.fmt(item.precio * item.qty));
+        $("#total-items").text(Carrito.countItems());
+        $("#sub-total").text(Carrito.fmt(Carrito.subtotal()));
+        $("#shipping").text(Carrito.fmt(Carrito.shipping()));
+        $("#taxes").text(Carrito.fmt(Carrito.taxes()));
+        $("#total").text(Carrito.fmt(Carrito.total()));
+        Carrito.renderBadge();
+    });
+
+    // Eliminar
+    $(document).on("click", ".btn-remove", function(){
+        const id = $(this).closest(".card").data("id");
+        Carrito.remove(id);
+        renderCarrito();
+    });
+
+    // Vaciar
+    $("#btn-vaciar").on("click", function(){
+        if (confirm("¿Deseas vaciar el carrito completo?")) {
+            Carrito.clear();
+            renderCarrito();
         }
-    }
+    });
 
-    // Función para proceder al pago
-    function procederAlPago() {
-        alert('Procediendo al pago (funcionalidad no implementada aún)');
-    }
+    // Pagar (placeholder)
+    $("#btn-pagar").on("click", function(){
+        if (Carrito.countItems() === 0) {
+            alert("Tu carrito está vacío.");
+            return;
+        }
+        alert("Redirigir a la pasarela de pago (pendiente de integración).");
+    });
 
-    // Inicializar resumen al cargar la página
-    document.addEventListener('DOMContentLoaded', function() {
-        actualizarResumen();
+    // Inicio
+    document.addEventListener("DOMContentLoaded", () => {
+        Carrito.renderBadge();
+        renderCarrito();
     });
 </script>
-
 </body>
 </html>
