@@ -153,12 +153,18 @@ function agregarAlCarrito() {
 }
 
 
-// ✅ Comprar ahora
+// ✅ Comprar ahora (versión con redirección al carrito)
 function comprarAhora() {
-    const cantidad = $("#quantity").val();
-    const total = productoActual.precio * cantidad;
-    alert(`Compra rápida:\n\n${productoActual.nombre}\nCantidad: ${cantidad}\nTotal: $${total.toFixed(2)}\n\n¡Redirigiendo al pago!`);
+    const cantidad = parseInt($("#quantity").val(), 10) || 1;
+
+    // Asegúrate de que productoActual tenga estas propiedades:
+    // { id, nombre, precio, imagen, stock }
+    Carrito.add(productoActual, cantidad);
+
+    // Redirigir al carrito
+    window.location.href = "carrito.html";
 }
+
 
 // ✅ Mostrar error
 function mostrarError() {
