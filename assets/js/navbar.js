@@ -1,4 +1,3 @@
-// assets/js/navbar.js
 $(function () {
     // --- 1. Cargar navbar desde caché si existe ---
     if (sessionStorage.getItem("navbarHTML")) {
