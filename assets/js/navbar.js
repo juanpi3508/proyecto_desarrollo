@@ -73,7 +73,7 @@ $(function () {
                     $cartCount.hide();
                 }
             } else {
-                console.warn("⚠️ CartModel no está definido. Carga carrito.js antes de navbar.js");
+                console.warn("⚠️ CartModel no está definido. Carga carrito antes de navbar.js");
             }
         }
 
