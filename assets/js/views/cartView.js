@@ -64,8 +64,6 @@
         $("#shipping").text(CartModel.fmt(CartModel.shipping()));
         $("#taxes").text(CartModel.fmt(CartModel.taxes()));   // IVA
         $("#total").text(CartModel.fmt(CartModel.total()));   // total final
-
-        CartModel.renderBadge();
     }
 
     w.CartView = { renderCarrito };

@@ -130,14 +130,6 @@
             return new Intl.NumberFormat(loc, { style: 'currency', currency: curr }).format(n);
         },
 
-        renderBadge() {
-            const $badge = $("#cart-count");
-            if ($badge.length) {
-                const count = this.countItems();
-                if (count > 0) $badge.text(count).show();
-                else $badge.text("").hide();
-            }
-        }
     };
 
     w.CartModel = api;

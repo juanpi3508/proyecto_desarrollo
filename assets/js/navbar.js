@@ -65,15 +65,15 @@ $(function () {
         const $cartCount = $("#cart-count");
 
         function actualizarBadge() {
-            if (typeof Carrito !== "undefined") {
-                const count = Carrito.countItems();
+            if (typeof CartModel !== "undefined") {   // <-- CORREGIDO
+                const count = CartModel.countItems(); // <-- CORREGIDO
                 if (count > 0) {
                     $cartCount.text(count).show();
                 } else {
                     $cartCount.hide();
                 }
             } else {
-                console.warn("⚠️ Carrito no está definido. Carga carrito.js antes de navbar.js");
+                console.warn("⚠️ CartModel no está definido. Carga carrito.js antes de navbar.js");
             }
         }
 
